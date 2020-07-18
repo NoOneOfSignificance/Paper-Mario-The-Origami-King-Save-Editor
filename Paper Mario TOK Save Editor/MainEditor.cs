@@ -1,18 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using DamienG.Security.Cryptography;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using DamienG.Security.Cryptography;
-using System.Diagnostics;
 
 namespace Paper_Mario_TOK_Save_Editor
 {
@@ -28,6 +19,8 @@ namespace Paper_Mario_TOK_Save_Editor
             ItemSelectBox.SelectedIndex = 0;
             SaveLoaded = false;
             SaveCheck();
+
+
         }
 
         #region Init Variables
@@ -56,67 +49,67 @@ namespace Paper_Mario_TOK_Save_Editor
             #region File Reading
             OpenSaveFile.Filter = "data00.bin (*.bin)|*bin";
 
-                if (OpenSaveFile.ShowDialog() == DialogResult.OK)
+            if (OpenSaveFile.ShowDialog() == DialogResult.OK)
+            {
+                SaveFilePath = OpenSaveFile.FileName;
+                SaveLoaded = true;
+
+                var FileStream = OpenSaveFile.OpenFile();
+
+                using (StreamReader Reader = new StreamReader(FileStream))
                 {
-                    SaveFilePath = OpenSaveFile.FileName;
-                    SaveLoaded = true;
+                    //Gets File Contents then removes the old hash
+                    SaveFileContents = Reader.ReadToEnd();
+                    OldHash = SaveFileContents.Substring(SaveFileContents.Length - 8);
+                    SaveFileContentsNoHash = SaveFileContents.Replace(OldHash, "");
 
-                    var FileStream = OpenSaveFile.OpenFile();
+                    JsonRead = $@"{SaveFileContentsNoHash}";
 
-                    using (StreamReader Reader = new StreamReader(FileStream))
+                    var stats = JsonConvert.DeserializeObject<dynamic>(JsonRead);
+
+                    HPCounter.Value = Convert.ToInt32(stats.Pouch.hp);
+                    MaxHPCounter.Value = Convert.ToInt32(stats.Pouch.hp_max);
+                    CoinCounter.Value = Convert.ToInt32(stats.Pouch.coin);
+                    CoinsSpentCounter.Value = Convert.ToInt32(stats.Pouch.use_coin);
+                    CurrentConfettiCounter.Text = stats.Pouch.confetti_paper;
+                    BagCapacityCounter.Value = Convert.ToInt32(stats.Pouch.confetti_paper_max);
+                    SaveCheck();
+
+                    //This gets used to read Bibliofold unlocks.
+                    JObject obj = JObject.Parse(JsonRead);
+                    var val = obj["Pouch"];
+                    EarthBook = val["equipment"]["magic"]["0"]["type"].ToString();
+                    WaterBook = val["equipment"]["magic"]["1"]["type"].ToString();
+                    FireBook = val["equipment"]["magic"]["2"]["type"].ToString();
+                    IceBook = val["equipment"]["magic"]["3"]["type"].ToString();
+
+                    EarthBookBox.Checked = (EarthBook == "3");
+
+                    WaterBookBox.Checked = (WaterBook == "3");
+
+                    FireBookBox.Checked = (FireBook == "3");
+
+                    IceBookBox.Checked = (IceBook == "3");
+
+                    ReadInventory();
+
+                    PlaytimeHourCounter.Value = Convert.ToInt32(val["play_time"]["play_hour"]);
+                    PlaytimeMinuteCounter.Value = Convert.ToInt32(val["play_time"]["play_min"]);
+                    PlaytimeSecondCounter.Value = Convert.ToInt32(val["play_time"]["play_sec"]);
+
+                    string PartnerStatus = val["party_infor"]["partyMemberName"].ToString();
+
+                    if (PartnerStatus == "{}")
                     {
-                        //Gets File Contents then removes the old hash
-                        SaveFileContents = Reader.ReadToEnd();
-                        OldHash = SaveFileContents.Substring(SaveFileContents.Length - 8);
-                        SaveFileContentsNoHash = SaveFileContents.Replace(OldHash, "");
-
-                        JsonRead = $@"{SaveFileContentsNoHash}";
-
-                        var stats = JsonConvert.DeserializeObject<dynamic>(JsonRead);
-
-                        HPCounter.Value = Convert.ToInt32(stats.Pouch.hp);
-                        MaxHPCounter.Value = Convert.ToInt32(stats.Pouch.hp_max);
-                        CoinCounter.Value = Convert.ToInt32(stats.Pouch.coin);
-                        CoinsSpentCounter.Value = Convert.ToInt32(stats.Pouch.use_coin);
-                        CurrentConfettiCounter.Text = stats.Pouch.confetti_paper;
-                        BagCapacityCounter.Value = Convert.ToInt32(stats.Pouch.confetti_paper_max);
-                        SaveCheck();
-
-                        //This gets used to read Bibliofold unlocks.
-                        JObject obj = JObject.Parse(JsonRead);
-                        var val = obj["Pouch"];
-                        EarthBook = val["equipment"]["magic"]["0"]["type"].ToString();
-                        WaterBook = val["equipment"]["magic"]["1"]["type"].ToString();
-                        FireBook = val["equipment"]["magic"]["2"]["type"].ToString();
-                        IceBook = val["equipment"]["magic"]["3"]["type"].ToString();
-
-                        EarthBookBox.Checked = (EarthBook == "3");
-
-                        WaterBookBox.Checked = (WaterBook == "3");
-
-                        FireBookBox.Checked = (FireBook == "3");
-
-                        IceBookBox.Checked = (IceBook == "3");
-
-                        ReadInventory();
-
-                        PlaytimeHourCounter.Value = Convert.ToInt32(val["play_time"]["play_hour"]);
-                        PlaytimeMinuteCounter.Value = Convert.ToInt32(val["play_time"]["play_min"]);
-                        PlaytimeSecondCounter.Value = Convert.ToInt32(val["play_time"]["play_sec"]);
-
-                        string PartnerStatus = val["party_infor"]["partyMemberName"].ToString();
-
-                        if (PartnerStatus == "{}")
-                        {
-                            PartnerSelectBox.SelectedIndex = 0;
-                        }
-                        else
-                        {
-                            string PartnerID = val["party_infor"]["partyMemberName"]["0"].ToString();
-                            PartnerSelectBox.SelectedIndex = PartnerSelectBox.Items.IndexOf(ToPartnerName(PartnerID));
-                        }
+                        PartnerSelectBox.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        string PartnerID = val["party_infor"]["partyMemberName"]["0"].ToString();
+                        PartnerSelectBox.SelectedIndex = PartnerSelectBox.Items.IndexOf(ToPartnerName(PartnerID));
                     }
                 }
+            }
             #endregion
         }
 
@@ -272,7 +265,7 @@ namespace Paper_Mario_TOK_Save_Editor
             JObject obj = JObject.Parse(JsonRead);
             var val = obj["Pouch"];
 
-            for (int ItemSlot = 0;ItemSlot < items.Length;ItemSlot++)
+            for (int ItemSlot = 0; ItemSlot < items.Length; ItemSlot++)
             {
                 string IStoString = ItemSlot.ToString();
                 items[ItemSlot] = new InventoryItem
@@ -283,7 +276,7 @@ namespace Paper_Mario_TOK_Save_Editor
                 };
             }
 
-            for (int ItemListIndex = 0;ItemListIndex < items.Length;ItemListIndex++)
+            for (int ItemListIndex = 0; ItemListIndex < items.Length; ItemListIndex++)
             {
                 items[ItemListIndex].itemName = ToItemName(items[ItemListIndex].itemId);
                 if (items[ItemListIndex].itemName == "Error")
@@ -302,9 +295,9 @@ namespace Paper_Mario_TOK_Save_Editor
                 string result = $"[{ItemListIndex}] " + items[ItemListIndex].itemName;
                 ItemListBox.Items.Add(result);
             }
-            
+
         }
-        
+
 
         private void ItemListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -781,6 +774,24 @@ namespace Paper_Mario_TOK_Save_Editor
             }
             return "Error";
 
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
+        }
+
+        private void MainEditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode.ToString() == "O")
+            {
+                MessageBox.Show("Open File Placeholder");
+            }
+            if (e.Control && e.Shift && e.KeyCode.ToString() == "S")
+            {
+                MessageBox.Show("Save File Placeholder");
+            }
         }
     }
 }
