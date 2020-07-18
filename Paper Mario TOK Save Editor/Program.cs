@@ -16,7 +16,7 @@ namespace Paper_Mario_TOK_Save_Editor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainEditor());
         }
     }
 }

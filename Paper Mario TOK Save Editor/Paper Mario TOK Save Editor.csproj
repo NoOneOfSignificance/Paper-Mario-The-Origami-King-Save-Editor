@@ -115,6 +115,11 @@
     <None Include="Resources\PSV_Puzzle_TIME2.png" />
     <None Include="Resources\PSV_Puzzle_TIME3.png" />
     <None Include="Resources\THROW_HAMMER.png" />
+    <None Include="Resources\Bar_2.png" />
+    <None Include="Resources\Bar_1.png" />
+    <None Include="Resources\Bar_3.png" />
+    <None Include="Resources\Bar_4.png" />
+    <None Include="Resources\Bar_5.png" />
     <Content Include="tok ico 2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

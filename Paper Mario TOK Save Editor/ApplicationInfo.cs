@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Paper_Mario_TOK_Save_Editor
 {
-    public partial class Form2 : Form
+    public partial class ApplicationInfo : Form
     {
-        public Form2()
+        public ApplicationInfo()
         {
             InitializeComponent();
         }

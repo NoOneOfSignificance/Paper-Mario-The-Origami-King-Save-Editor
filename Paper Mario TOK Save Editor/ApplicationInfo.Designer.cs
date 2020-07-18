@@ -1,6 +1,6 @@
 ﻿namespace Paper_Mario_TOK_Save_Editor
 {
-    partial class Form2
+    partial class ApplicationInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationInfo));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -77,9 +77,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 140);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(200, 13);
+            this.label5.Size = new System.Drawing.Size(275, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Blue - OrigamiFileHashTool Development";
+            this.label5.Text = "Blue - Teaching me how to recalculate the save file hash";
             // 
             // Form2
             // 

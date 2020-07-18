@@ -1,6 +1,6 @@
 ﻿namespace Paper_Mario_TOK_Save_Editor
 {
-    partial class Form1
+    partial class MainEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,14 +38,15 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.EarthBookBox = new System.Windows.Forms.CheckBox();
             this.IceBookBox = new System.Windows.Forms.CheckBox();
-            this.CurrentConfettiCounter = new System.Windows.Forms.TextBox();
+            this.WaterBookBox = new System.Windows.Forms.CheckBox();
             this.FireBookBox = new System.Windows.Forms.CheckBox();
+            this.CurrentConfettiCounter = new System.Windows.Forms.TextBox();
             this.BagCapacityCounter = new System.Windows.Forms.NumericUpDown();
             this.CoinsSpentCounter = new System.Windows.Forms.NumericUpDown();
-            this.WaterBookBox = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.EarthBookBox = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.CoinCounter = new System.Windows.Forms.NumericUpDown();
@@ -65,25 +66,22 @@
             this.ItemSelectBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.ItemNameLabel = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.DebugTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.PartnerSelectBox = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.PlaytimeHourCounter = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.PlaytimeMinuteCounter = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.PlaytimeSecondCounter = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.PlaytimeMinuteCounter = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.PlaytimeHourCounter = new System.Windows.Forms.NumericUpDown();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.PartnerSelectBox = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.MapComboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BagCapacityCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoinsSpentCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoinCounter)).BeginInit();
@@ -93,14 +91,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.UsedBreakRateCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsedEnduranceCounter)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeSecondCounter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,7 +107,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(430, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(461, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -158,11 +154,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(430, 163);
+            this.tabControl1.Size = new System.Drawing.Size(461, 185);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -171,7 +166,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(422, 137);
+            this.tabPage1.Size = new System.Drawing.Size(453, 159);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Player Stats";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -193,10 +188,33 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(8, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 124);
+            this.groupBox1.Size = new System.Drawing.Size(437, 147);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Player Stats";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.EarthBookBox);
+            this.groupBox3.Controls.Add(this.IceBookBox);
+            this.groupBox3.Controls.Add(this.WaterBookBox);
+            this.groupBox3.Controls.Add(this.FireBookBox);
+            this.groupBox3.Location = new System.Drawing.Point(206, 94);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(225, 47);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Bibliofolds";
+            // 
+            // EarthBookBox
+            // 
+            this.EarthBookBox.AutoSize = true;
+            this.EarthBookBox.Location = new System.Drawing.Point(6, 18);
+            this.EarthBookBox.Name = "EarthBookBox";
+            this.EarthBookBox.Size = new System.Drawing.Size(51, 17);
+            this.EarthBookBox.TabIndex = 15;
+            this.EarthBookBox.Text = "Earth";
+            this.EarthBookBox.UseVisualStyleBackColor = true;
             // 
             // IceBookBox
             // 
@@ -208,12 +226,15 @@
             this.IceBookBox.Text = "Ice";
             this.IceBookBox.UseVisualStyleBackColor = true;
             // 
-            // CurrentConfettiCounter
+            // WaterBookBox
             // 
-            this.CurrentConfettiCounter.Location = new System.Drawing.Point(289, 17);
-            this.CurrentConfettiCounter.Name = "CurrentConfettiCounter";
-            this.CurrentConfettiCounter.Size = new System.Drawing.Size(55, 20);
-            this.CurrentConfettiCounter.TabIndex = 13;
+            this.WaterBookBox.AutoSize = true;
+            this.WaterBookBox.Location = new System.Drawing.Point(63, 18);
+            this.WaterBookBox.Name = "WaterBookBox";
+            this.WaterBookBox.Size = new System.Drawing.Size(55, 17);
+            this.WaterBookBox.TabIndex = 16;
+            this.WaterBookBox.Text = "Water";
+            this.WaterBookBox.UseVisualStyleBackColor = true;
             // 
             // FireBookBox
             // 
@@ -225,9 +246,16 @@
             this.FireBookBox.Text = "Fire";
             this.FireBookBox.UseVisualStyleBackColor = true;
             // 
+            // CurrentConfettiCounter
+            // 
+            this.CurrentConfettiCounter.Location = new System.Drawing.Point(318, 34);
+            this.CurrentConfettiCounter.Name = "CurrentConfettiCounter";
+            this.CurrentConfettiCounter.Size = new System.Drawing.Size(102, 20);
+            this.CurrentConfettiCounter.TabIndex = 13;
+            // 
             // BagCapacityCounter
             // 
-            this.BagCapacityCounter.Location = new System.Drawing.Point(289, 44);
+            this.BagCapacityCounter.Location = new System.Drawing.Point(318, 68);
             this.BagCapacityCounter.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -239,7 +267,7 @@
             0,
             0});
             this.BagCapacityCounter.Name = "BagCapacityCounter";
-            this.BagCapacityCounter.Size = new System.Drawing.Size(55, 20);
+            this.BagCapacityCounter.Size = new System.Drawing.Size(102, 20);
             this.BagCapacityCounter.TabIndex = 7;
             this.BagCapacityCounter.Value = new decimal(new int[] {
             1,
@@ -249,7 +277,7 @@
             // 
             // CoinsSpentCounter
             // 
-            this.CoinsSpentCounter.Location = new System.Drawing.Point(77, 96);
+            this.CoinsSpentCounter.Location = new System.Drawing.Point(77, 109);
             this.CoinsSpentCounter.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -264,39 +292,19 @@
             0,
             0});
             // 
-            // WaterBookBox
-            // 
-            this.WaterBookBox.AutoSize = true;
-            this.WaterBookBox.Location = new System.Drawing.Point(63, 18);
-            this.WaterBookBox.Name = "WaterBookBox";
-            this.WaterBookBox.Size = new System.Drawing.Size(55, 17);
-            this.WaterBookBox.TabIndex = 16;
-            this.WaterBookBox.Text = "Water";
-            this.WaterBookBox.UseVisualStyleBackColor = true;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(174, 46);
+            this.label5.Location = new System.Drawing.Point(203, 70);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Confetti Bag Capacity";
             // 
-            // EarthBookBox
-            // 
-            this.EarthBookBox.AutoSize = true;
-            this.EarthBookBox.Location = new System.Drawing.Point(6, 18);
-            this.EarthBookBox.Name = "EarthBookBox";
-            this.EarthBookBox.Size = new System.Drawing.Size(51, 17);
-            this.EarthBookBox.TabIndex = 15;
-            this.EarthBookBox.Text = "Earth";
-            this.EarthBookBox.UseVisualStyleBackColor = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 98);
+            this.label4.Location = new System.Drawing.Point(7, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 6;
@@ -305,7 +313,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(174, 20);
+            this.label6.Location = new System.Drawing.Point(203, 37);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 13);
             this.label6.TabIndex = 4;
@@ -313,7 +321,7 @@
             // 
             // CoinCounter
             // 
-            this.CoinCounter.Location = new System.Drawing.Point(77, 70);
+            this.CoinCounter.Location = new System.Drawing.Point(77, 81);
             this.CoinCounter.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -325,7 +333,7 @@
             0,
             0});
             this.CoinCounter.Name = "CoinCounter";
-            this.CoinCounter.Size = new System.Drawing.Size(55, 20);
+            this.CoinCounter.Size = new System.Drawing.Size(88, 20);
             this.CoinCounter.TabIndex = 5;
             this.CoinCounter.Value = new decimal(new int[] {
             1,
@@ -336,7 +344,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 72);
+            this.label3.Location = new System.Drawing.Point(7, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 4;
@@ -344,7 +352,7 @@
             // 
             // MaxHPCounter
             // 
-            this.MaxHPCounter.Location = new System.Drawing.Point(77, 44);
+            this.MaxHPCounter.Location = new System.Drawing.Point(77, 55);
             this.MaxHPCounter.Maximum = new decimal(new int[] {
             999,
             0,
@@ -356,7 +364,7 @@
             0,
             0});
             this.MaxHPCounter.Name = "MaxHPCounter";
-            this.MaxHPCounter.Size = new System.Drawing.Size(55, 20);
+            this.MaxHPCounter.Size = new System.Drawing.Size(88, 20);
             this.MaxHPCounter.TabIndex = 3;
             this.MaxHPCounter.Value = new decimal(new int[] {
             1,
@@ -367,7 +375,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 46);
+            this.label2.Location = new System.Drawing.Point(7, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 2;
@@ -375,7 +383,7 @@
             // 
             // HPCounter
             // 
-            this.HPCounter.Location = new System.Drawing.Point(77, 18);
+            this.HPCounter.Location = new System.Drawing.Point(77, 29);
             this.HPCounter.Maximum = new decimal(new int[] {
             999,
             0,
@@ -387,7 +395,7 @@
             0,
             0});
             this.HPCounter.Name = "HPCounter";
-            this.HPCounter.Size = new System.Drawing.Size(55, 20);
+            this.HPCounter.Size = new System.Drawing.Size(88, 20);
             this.HPCounter.TabIndex = 1;
             this.HPCounter.Value = new decimal(new int[] {
             1,
@@ -398,7 +406,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(22, 13);
             this.label1.TabIndex = 0;
@@ -406,26 +415,19 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.ItemChangesApply);
-            this.tabPage2.Controls.Add(this.UsedBreakRateCounter);
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.UsedEnduranceCounter);
-            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.groupBox6);
             this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Controls.Add(this.ItemSelectBox);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.ItemNameLabel);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(422, 137);
+            this.tabPage2.Size = new System.Drawing.Size(453, 159);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Inventory";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // ItemChangesApply
             // 
-            this.ItemChangesApply.Location = new System.Drawing.Point(166, 104);
+            this.ItemChangesApply.Location = new System.Drawing.Point(12, 120);
             this.ItemChangesApply.Name = "ItemChangesApply";
             this.ItemChangesApply.Size = new System.Drawing.Size(113, 23);
             this.ItemChangesApply.TabIndex = 16;
@@ -435,7 +437,7 @@
             // 
             // UsedBreakRateCounter
             // 
-            this.UsedBreakRateCounter.Location = new System.Drawing.Point(272, 77);
+            this.UsedBreakRateCounter.Location = new System.Drawing.Point(132, 84);
             this.UsedBreakRateCounter.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -448,7 +450,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(269, 60);
+            this.label10.Location = new System.Drawing.Point(129, 66);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(89, 13);
             this.label10.TabIndex = 14;
@@ -456,7 +458,7 @@
             // 
             // UsedEnduranceCounter
             // 
-            this.UsedEnduranceCounter.Location = new System.Drawing.Point(166, 77);
+            this.UsedEnduranceCounter.Location = new System.Drawing.Point(12, 84);
             this.UsedEnduranceCounter.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -469,7 +471,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(163, 60);
+            this.label9.Location = new System.Drawing.Point(9, 66);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(87, 13);
             this.label9.TabIndex = 12;
@@ -480,17 +482,18 @@
             this.groupBox2.Controls.Add(this.ItemListBox);
             this.groupBox2.Location = new System.Drawing.Point(9, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(148, 127);
+            this.groupBox2.Size = new System.Drawing.Size(196, 149);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Items";
             // 
             // ItemListBox
             // 
+            this.ItemListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ItemListBox.FormattingEnabled = true;
-            this.ItemListBox.Location = new System.Drawing.Point(6, 19);
+            this.ItemListBox.Location = new System.Drawing.Point(3, 16);
             this.ItemListBox.Name = "ItemListBox";
-            this.ItemListBox.Size = new System.Drawing.Size(136, 95);
+            this.ItemListBox.Size = new System.Drawing.Size(190, 130);
             this.ItemListBox.TabIndex = 0;
             this.ItemListBox.SelectedIndexChanged += new System.EventHandler(this.ItemListBox_SelectedIndexChanged);
             // 
@@ -529,7 +532,7 @@
             "Shiny Tail",
             "Pow Block",
             "Members Card (Bronze)"});
-            this.ItemSelectBox.Location = new System.Drawing.Point(255, 32);
+            this.ItemSelectBox.Location = new System.Drawing.Point(97, 42);
             this.ItemSelectBox.Name = "ItemSelectBox";
             this.ItemSelectBox.Size = new System.Drawing.Size(142, 21);
             this.ItemSelectBox.TabIndex = 10;
@@ -537,7 +540,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(163, 35);
+            this.label7.Location = new System.Drawing.Point(9, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 13);
             this.label7.TabIndex = 9;
@@ -546,84 +549,23 @@
             // ItemNameLabel
             // 
             this.ItemNameLabel.AutoSize = true;
-            this.ItemNameLabel.Location = new System.Drawing.Point(163, 16);
+            this.ItemNameLabel.Location = new System.Drawing.Point(9, 21);
             this.ItemNameLabel.Name = "ItemNameLabel";
             this.ItemNameLabel.Size = new System.Drawing.Size(103, 13);
             this.ItemNameLabel.TabIndex = 4;
             this.ItemNameLabel.Text = "Selected Item Name";
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.DebugTextBox);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(422, 137);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Debug";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // DebugTextBox
-            // 
-            this.DebugTextBox.Location = new System.Drawing.Point(9, 7);
-            this.DebugTextBox.Multiline = true;
-            this.DebugTextBox.Name = "DebugTextBox";
-            this.DebugTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DebugTextBox.Size = new System.Drawing.Size(405, 124);
-            this.DebugTextBox.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.EarthBookBox);
-            this.groupBox3.Controls.Add(this.IceBookBox);
-            this.groupBox3.Controls.Add(this.WaterBookBox);
-            this.groupBox3.Controls.Add(this.FireBookBox);
-            this.groupBox3.Location = new System.Drawing.Point(175, 69);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(225, 47);
-            this.groupBox3.TabIndex = 19;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Bibliofolds";
-            // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.groupBox6);
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Controls.Add(this.groupBox4);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(422, 137);
+            this.tabPage4.Size = new System.Drawing.Size(453, 159);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Extras";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.PartnerSelectBox);
-            this.groupBox4.Location = new System.Drawing.Point(9, 7);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(136, 50);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Party Member";
-            // 
-            // PartnerSelectBox
-            // 
-            this.PartnerSelectBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.PartnerSelectBox.FormattingEnabled = true;
-            this.PartnerSelectBox.Items.AddRange(new object[] {
-            "--Select Partner--",
-            "None",
-            "Bobby",
-            "Prof. Toad",
-            "Green Toad",
-            "Luigi"});
-            this.PartnerSelectBox.Location = new System.Drawing.Point(7, 20);
-            this.PartnerSelectBox.Name = "PartnerSelectBox";
-            this.PartnerSelectBox.Size = new System.Drawing.Size(121, 21);
-            this.PartnerSelectBox.TabIndex = 0;
-            this.PartnerSelectBox.SelectedIndexChanged += new System.EventHandler(this.PartnerSelectBox_SelectedIndexChanged);
             // 
             // groupBox5
             // 
@@ -639,40 +581,6 @@
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Play Time";
-            // 
-            // PlaytimeHourCounter
-            // 
-            this.PlaytimeHourCounter.Location = new System.Drawing.Point(9, 32);
-            this.PlaytimeHourCounter.Name = "PlaytimeHourCounter";
-            this.PlaytimeHourCounter.Size = new System.Drawing.Size(55, 20);
-            this.PlaytimeHourCounter.TabIndex = 0;
-            this.PlaytimeHourCounter.ValueChanged += new System.EventHandler(this.PlaytimeHourCounter_ValueChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Hours";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(67, 16);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Minutes";
-            // 
-            // PlaytimeMinuteCounter
-            // 
-            this.PlaytimeMinuteCounter.Location = new System.Drawing.Point(70, 32);
-            this.PlaytimeMinuteCounter.Name = "PlaytimeMinuteCounter";
-            this.PlaytimeMinuteCounter.Size = new System.Drawing.Size(55, 20);
-            this.PlaytimeMinuteCounter.TabIndex = 2;
-            this.PlaytimeMinuteCounter.ValueChanged += new System.EventHandler(this.PlaytimeMinuteCounter_ValueChanged);
             // 
             // label12
             // 
@@ -691,43 +599,101 @@
             this.PlaytimeSecondCounter.TabIndex = 4;
             this.PlaytimeSecondCounter.ValueChanged += new System.EventHandler(this.PlaytimeSecondCounter_ValueChanged);
             // 
-            // groupBox6
+            // label11
             // 
-            this.groupBox6.Controls.Add(this.MapComboBox);
-            this.groupBox6.Location = new System.Drawing.Point(278, 7);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(136, 50);
-            this.groupBox6.TabIndex = 2;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Map";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(67, 16);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Minutes";
             // 
-            // MapComboBox
+            // PlaytimeMinuteCounter
             // 
-            this.MapComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MapComboBox.FormattingEnabled = true;
-            this.MapComboBox.Items.AddRange(new object[] {
-            "--Select Partner--",
-            "Bobby",
+            this.PlaytimeMinuteCounter.Location = new System.Drawing.Point(70, 32);
+            this.PlaytimeMinuteCounter.Name = "PlaytimeMinuteCounter";
+            this.PlaytimeMinuteCounter.Size = new System.Drawing.Size(55, 20);
+            this.PlaytimeMinuteCounter.TabIndex = 2;
+            this.PlaytimeMinuteCounter.ValueChanged += new System.EventHandler(this.PlaytimeMinuteCounter_ValueChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Hours";
+            // 
+            // PlaytimeHourCounter
+            // 
+            this.PlaytimeHourCounter.Location = new System.Drawing.Point(9, 32);
+            this.PlaytimeHourCounter.Name = "PlaytimeHourCounter";
+            this.PlaytimeHourCounter.Size = new System.Drawing.Size(55, 20);
+            this.PlaytimeHourCounter.TabIndex = 0;
+            this.PlaytimeHourCounter.ValueChanged += new System.EventHandler(this.PlaytimeHourCounter_ValueChanged);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.PartnerSelectBox);
+            this.groupBox4.Location = new System.Drawing.Point(9, 7);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(136, 50);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Party Member";
+            // 
+            // PartnerSelectBox
+            // 
+            this.PartnerSelectBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PartnerSelectBox.FormattingEnabled = true;
+            this.PartnerSelectBox.Items.AddRange(new object[] {
+            "None",
+            "Bowser (Folded)",
+            "Bobby - Doesnt Work",
+            "Bone Goomba",
+            "Sombrero Guy",
             "Prof. Toad",
             "Green Toad",
-            "Luigi"});
-            this.MapComboBox.Location = new System.Drawing.Point(6, 20);
-            this.MapComboBox.Name = "MapComboBox";
-            this.MapComboBox.Size = new System.Drawing.Size(121, 21);
-            this.MapComboBox.TabIndex = 0;
+            "Luigi",
+            "Spike",
+            "Bowser Jr. - Doesnt Work + Crash",
+            "Kamek"});
+            this.PartnerSelectBox.Location = new System.Drawing.Point(7, 20);
+            this.PartnerSelectBox.Name = "PartnerSelectBox";
+            this.PartnerSelectBox.Size = new System.Drawing.Size(121, 21);
+            this.PartnerSelectBox.TabIndex = 0;
+            this.PartnerSelectBox.SelectedIndexChanged += new System.EventHandler(this.PartnerSelectBox_SelectedIndexChanged);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.ItemNameLabel);
+            this.groupBox6.Controls.Add(this.UsedBreakRateCounter);
+            this.groupBox6.Controls.Add(this.ItemChangesApply);
+            this.groupBox6.Controls.Add(this.label10);
+            this.groupBox6.Controls.Add(this.label7);
+            this.groupBox6.Controls.Add(this.ItemSelectBox);
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Controls.Add(this.UsedEnduranceCounter);
+            this.groupBox6.Location = new System.Drawing.Point(208, 4);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(241, 149);
+            this.groupBox6.TabIndex = 17;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Item Editor";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 188);
+            this.ClientSize = new System.Drawing.Size(461, 211);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Paper Mario: The Origami King Save Editor (v0.5)";
+            this.Text = "Paper Mario: The Origami King Save Editor (v0.7)";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -735,28 +701,26 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BagCapacityCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoinsSpentCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoinCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxHPCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HPCounter)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UsedBreakRateCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsedEnduranceCounter)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeSecondCounter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -790,8 +754,6 @@
         private System.Windows.Forms.CheckBox FireBookBox;
         private System.Windows.Forms.CheckBox WaterBookBox;
         private System.Windows.Forms.CheckBox EarthBookBox;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox DebugTextBox;
         private System.Windows.Forms.Label ItemNameLabel;
         private System.Windows.Forms.ComboBox ItemSelectBox;
         private System.Windows.Forms.Label label7;
@@ -814,7 +776,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown PlaytimeHourCounter;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.ComboBox MapComboBox;
     }
 }
 
