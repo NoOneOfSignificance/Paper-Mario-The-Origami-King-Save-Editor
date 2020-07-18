@@ -53,26 +53,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crc32.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="MainEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainEditor.Designer.cs">
+      <DependentUpon>MainEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="ApplicationInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="ApplicationInfo.Designer.cs">
+      <DependentUpon>ApplicationInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="InventoryItemClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainEditor.resx">
+      <DependentUpon>MainEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="ApplicationInfo.resx">
+      <DependentUpon>ApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,28 +99,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\HAMMER.png" />
-    <None Include="Resources\BOOTS.png" />
-    <None Include="Resources\GOLD_BOOTS.png" />
-    <None Include="Resources\GREAT_BOOTS.png" />
-    <None Include="Resources\IRON_BOOTS.png" />
-    <None Include="Resources\KINOKO.png" />
-    <None Include="Resources\SILVER_BOOTS.png" />
-    <None Include="Resources\SUPER_BOOTS.png" />
-    <None Include="Resources\STEEL_BOOTS.png" />
-    <None Include="Resources\SUPER_STEEL_BOOTS.png" />
-    <None Include="Resources\SUPER_IRON_BOOTS.png" />
-    <None Include="Resources\FIRE_FLOWER.png" />
-    <None Include="Resources\PSV_Puzzle_TIME1.png" />
-    <None Include="Resources\PSV_Puzzle_TIME2.png" />
-    <None Include="Resources\PSV_Puzzle_TIME3.png" />
-    <None Include="Resources\THROW_HAMMER.png" />
-    <None Include="Resources\Bar_2.png" />
-    <None Include="Resources\Bar_1.png" />
-    <None Include="Resources\Bar_3.png" />
-    <None Include="Resources\Bar_4.png" />
-    <None Include="Resources\Bar_5.png" />
     <Content Include="tok ico 2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

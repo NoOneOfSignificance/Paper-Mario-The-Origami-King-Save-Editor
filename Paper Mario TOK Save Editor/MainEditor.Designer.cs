@@ -56,16 +56,17 @@
             this.HPCounter = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.ItemChangesApply = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.ItemNameLabel = new System.Windows.Forms.Label();
             this.UsedBreakRateCounter = new System.Windows.Forms.NumericUpDown();
+            this.ItemChangesApply = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.UsedEnduranceCounter = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ItemSelectBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.UsedEnduranceCounter = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ItemListBox = new System.Windows.Forms.ListBox();
-            this.ItemSelectBox = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.ItemNameLabel = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -76,7 +77,6 @@
             this.PlaytimeHourCounter = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.PartnerSelectBox = new System.Windows.Forms.ComboBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -88,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MaxHPCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HPCounter)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UsedBreakRateCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsedEnduranceCounter)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -97,7 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).BeginInit();
             this.groupBox4.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -145,7 +145,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -323,7 +323,7 @@
             // 
             this.CoinCounter.Location = new System.Drawing.Point(77, 81);
             this.CoinCounter.Maximum = new decimal(new int[] {
-            99999,
+            999999,
             0,
             0,
             0});
@@ -425,15 +425,31 @@
             this.tabPage2.Text = "Inventory";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // ItemChangesApply
+            // groupBox6
             // 
-            this.ItemChangesApply.Location = new System.Drawing.Point(12, 120);
-            this.ItemChangesApply.Name = "ItemChangesApply";
-            this.ItemChangesApply.Size = new System.Drawing.Size(113, 23);
-            this.ItemChangesApply.TabIndex = 16;
-            this.ItemChangesApply.Text = "Apply Item Changes";
-            this.ItemChangesApply.UseVisualStyleBackColor = true;
-            this.ItemChangesApply.Click += new System.EventHandler(this.ItemChangesApply_Click);
+            this.groupBox6.Controls.Add(this.ItemNameLabel);
+            this.groupBox6.Controls.Add(this.UsedBreakRateCounter);
+            this.groupBox6.Controls.Add(this.ItemChangesApply);
+            this.groupBox6.Controls.Add(this.label10);
+            this.groupBox6.Controls.Add(this.label7);
+            this.groupBox6.Controls.Add(this.ItemSelectBox);
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Controls.Add(this.UsedEnduranceCounter);
+            this.groupBox6.Location = new System.Drawing.Point(208, 4);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(241, 149);
+            this.groupBox6.TabIndex = 17;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Item Editor";
+            // 
+            // ItemNameLabel
+            // 
+            this.ItemNameLabel.AutoSize = true;
+            this.ItemNameLabel.Location = new System.Drawing.Point(9, 21);
+            this.ItemNameLabel.Name = "ItemNameLabel";
+            this.ItemNameLabel.Size = new System.Drawing.Size(103, 13);
+            this.ItemNameLabel.TabIndex = 4;
+            this.ItemNameLabel.Text = "Selected Item Name";
             // 
             // UsedBreakRateCounter
             // 
@@ -447,6 +463,16 @@
             this.UsedBreakRateCounter.Size = new System.Drawing.Size(97, 20);
             this.UsedBreakRateCounter.TabIndex = 15;
             // 
+            // ItemChangesApply
+            // 
+            this.ItemChangesApply.Location = new System.Drawing.Point(12, 120);
+            this.ItemChangesApply.Name = "ItemChangesApply";
+            this.ItemChangesApply.Size = new System.Drawing.Size(113, 23);
+            this.ItemChangesApply.TabIndex = 16;
+            this.ItemChangesApply.Text = "Apply Item Changes";
+            this.ItemChangesApply.UseVisualStyleBackColor = true;
+            this.ItemChangesApply.Click += new System.EventHandler(this.ItemChangesApply_Click);
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -456,46 +482,14 @@
             this.label10.TabIndex = 14;
             this.label10.Text = "Used Break Rate";
             // 
-            // UsedEnduranceCounter
+            // label7
             // 
-            this.UsedEnduranceCounter.Location = new System.Drawing.Point(12, 84);
-            this.UsedEnduranceCounter.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.UsedEnduranceCounter.Name = "UsedEnduranceCounter";
-            this.UsedEnduranceCounter.Size = new System.Drawing.Size(97, 20);
-            this.UsedEnduranceCounter.TabIndex = 13;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 66);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 13);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "Used Endurance";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.ItemListBox);
-            this.groupBox2.Location = new System.Drawing.Point(9, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(196, 149);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Items";
-            // 
-            // ItemListBox
-            // 
-            this.ItemListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemListBox.FormattingEnabled = true;
-            this.ItemListBox.Location = new System.Drawing.Point(3, 16);
-            this.ItemListBox.Name = "ItemListBox";
-            this.ItemListBox.Size = new System.Drawing.Size(190, 130);
-            this.ItemListBox.TabIndex = 0;
-            this.ItemListBox.SelectedIndexChanged += new System.EventHandler(this.ItemListBox_SelectedIndexChanged);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Change Item To";
             // 
             // ItemSelectBox
             // 
@@ -537,23 +531,46 @@
             this.ItemSelectBox.Size = new System.Drawing.Size(142, 21);
             this.ItemSelectBox.TabIndex = 10;
             // 
-            // label7
+            // label9
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 45);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 13);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Change Item To";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(87, 13);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Used Endurance";
             // 
-            // ItemNameLabel
+            // UsedEnduranceCounter
             // 
-            this.ItemNameLabel.AutoSize = true;
-            this.ItemNameLabel.Location = new System.Drawing.Point(9, 21);
-            this.ItemNameLabel.Name = "ItemNameLabel";
-            this.ItemNameLabel.Size = new System.Drawing.Size(103, 13);
-            this.ItemNameLabel.TabIndex = 4;
-            this.ItemNameLabel.Text = "Selected Item Name";
+            this.UsedEnduranceCounter.Location = new System.Drawing.Point(12, 84);
+            this.UsedEnduranceCounter.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.UsedEnduranceCounter.Name = "UsedEnduranceCounter";
+            this.UsedEnduranceCounter.Size = new System.Drawing.Size(97, 20);
+            this.UsedEnduranceCounter.TabIndex = 13;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.ItemListBox);
+            this.groupBox2.Location = new System.Drawing.Point(9, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(196, 149);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Items";
+            // 
+            // ItemListBox
+            // 
+            this.ItemListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemListBox.FormattingEnabled = true;
+            this.ItemListBox.Location = new System.Drawing.Point(3, 16);
+            this.ItemListBox.Name = "ItemListBox";
+            this.ItemListBox.Size = new System.Drawing.Size(190, 130);
+            this.ItemListBox.TabIndex = 0;
+            this.ItemListBox.SelectedIndexChanged += new System.EventHandler(this.ItemListBox_SelectedIndexChanged);
             // 
             // tabPage4
             // 
@@ -665,24 +682,7 @@
             this.PartnerSelectBox.TabIndex = 0;
             this.PartnerSelectBox.SelectedIndexChanged += new System.EventHandler(this.PartnerSelectBox_SelectedIndexChanged);
             // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.ItemNameLabel);
-            this.groupBox6.Controls.Add(this.UsedBreakRateCounter);
-            this.groupBox6.Controls.Add(this.ItemChangesApply);
-            this.groupBox6.Controls.Add(this.label10);
-            this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Controls.Add(this.ItemSelectBox);
-            this.groupBox6.Controls.Add(this.label9);
-            this.groupBox6.Controls.Add(this.UsedEnduranceCounter);
-            this.groupBox6.Location = new System.Drawing.Point(208, 4);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(241, 149);
-            this.groupBox6.TabIndex = 17;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Item Editor";
-            // 
-            // Form1
+            // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -692,8 +692,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "Form1";
-            this.Text = "Paper Mario: The Origami King Save Editor (v0.7)";
+            this.Name = "MainEditor";
+            this.Text = "Paper Mario: The Origami King Save Editor (v0.7-Dev)";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -709,6 +709,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.MaxHPCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HPCounter)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UsedBreakRateCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsedEnduranceCounter)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -719,8 +721,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
