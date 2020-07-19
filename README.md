@@ -33,6 +33,10 @@ A Save Editor for the recently released Paper Mario: The Origami King written in
 4. Start editing to your hearts content.
 5. When you're done editing, click on File -> Save to save your edits. Then export your save file to your save manager.
 
+# Known Issues
+* Some Partners in the Partner Editor don't work. The ones that don't work are labeled as so.
+* Investigating an issue where the save file may become unreadable.
+
 # Credits
 * [zSupremoz](https://twitter.com/zSupremoz) - Main developer
 * [Blue](https://twitter.com/1mBlueDabadee) - Taught me how to recalculate the CRC32B hash
