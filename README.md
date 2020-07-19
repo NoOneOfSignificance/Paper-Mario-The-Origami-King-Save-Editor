@@ -1,4 +1,4 @@
-# Paper Mario TOK Save Editor
+# Paper Mario: The Origami King Save Editor
 A Save Editor for the recently released Paper Mario: The Origami King written in C#.
 
 # Features
