@@ -21,8 +21,10 @@ namespace Paper_Mario_TOK_Save_Editor
             ItemSelectBox.SelectedIndex = 0;
             SaveLoaded = false;
             SaveCheck();
-
-
+            if (Properties.Settings.Default.BackupReminder == true)
+            {
+                MessageBox.Show("Please be sure to always make backups of your save files. You can enable a setting to automatically create backups when opening a save in the Settings tab under File -> Settings.", "Paper Mario: The Origami King Save Editor", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         #region Init Variables
@@ -64,15 +66,32 @@ namespace Paper_Mario_TOK_Save_Editor
 
                 if (Properties.Settings.Default.AutoBackups == true)
                 {
-                    if (File.Exists(BackupPath))
+                    if (Properties.Settings.Default.BackupPath.Length == 0)
                     {
-                        File.Delete(BackupPath);
-                        File.Copy(SaveFilePath, BackupPath);
+                        if (File.Exists(BackupPath))
+                        {
+                            File.Delete(BackupPath);
+                            File.Copy(SaveFilePath, BackupPath);
+                        }
+                        else
+                        {
+                            File.Copy(SaveFilePath, BackupPath);
+                        }
                     }
-                    else
+                    if (Properties.Settings.Default.BackupPath.Length > 0)
                     {
-                        File.Copy(SaveFilePath, BackupPath);
+                        BackupPath = Properties.Settings.Default.BackupPath + @"\data00.bak.bin";
+                        if (File.Exists(BackupPath))
+                        {
+                            File.Delete(BackupPath);
+                            File.Copy(SaveFilePath, BackupPath);
+                        }
+                        else
+                        {
+                            File.Copy(SaveFilePath, BackupPath);
+                        }
                     }
+                    
                 }
 
                 using (StreamReader Reader = new StreamReader(FileStream))
@@ -115,6 +134,7 @@ namespace Paper_Mario_TOK_Save_Editor
                     PlaytimeHourCounter.Value = Convert.ToInt32(val["play_time"]["play_hour"]);
                     PlaytimeMinuteCounter.Value = Convert.ToInt32(val["play_time"]["play_min"]);
                     PlaytimeSecondCounter.Value = Convert.ToInt32(val["play_time"]["play_sec"]);
+                    GameOverCounter.Value = Convert.ToInt32(val["record"]["game_over_count"]);
 
                     string PartnerStatus = val["party_infor"]["partyMemberName"].ToString();
 
@@ -144,6 +164,7 @@ namespace Paper_Mario_TOK_Save_Editor
             val["use_coin"] = Convert.ToInt32(CoinsSpentCounter.Value);
             val["confetti_paper"] = Convert.ToDouble(CurrentConfettiCounter.Value);
             val["confetti_paper_max"] = Convert.ToInt32(BagCapacityCounter.Value);
+            val["record"]["game_over_count"] = Convert.ToInt32(GameOverCounter.Value);
 
             if (EarthBookBox.Checked)
             {
@@ -346,6 +367,7 @@ namespace Paper_Mario_TOK_Save_Editor
             }
             if (items[ItemListBox.SelectedIndex].type == 2)
             {
+                ItemSelectBox.SelectedIndex = 29;
                 ItemSelectBox.Enabled = false;
                 UsedEnduranceCounter.Enabled = false;
                 UsedBreakRateCounter.Enabled = false;

@@ -35,7 +35,6 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -81,7 +80,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.PartnerSelectBox = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.GameOverCounter = new System.Windows.Forms.NumericUpDown();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -105,7 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameOverCounter)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -124,8 +123,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.exportToolStripMenuItem,
-            this.settingsToolStripMenuItem,
-            this.checkForUpdatesToolStripMenuItem});
+            this.settingsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -153,12 +151,6 @@
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.settingsToolStripMenuItem.Text = "Settings...";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
-            // 
-            // checkForUpdatesToolStripMenuItem
-            // 
-            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.checkForUpdatesToolStripMenuItem.Text = "Check for Updates...";
             // 
             // helpToolStripMenuItem
             // 
@@ -613,7 +605,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.numericUpDown1);
+            this.tabPage4.Controls.Add(this.GameOverCounter);
             this.tabPage4.Controls.Add(this.label13);
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Controls.Add(this.groupBox4);
@@ -731,8 +723,9 @@
             "Green Toad",
             "Luigi",
             "Spike",
-            "Bowser Jr. - Doesnt Work + Crash",
-            "Kamek"});
+            "Bowser Jr. - Doesn\'t Work",
+            "Kamek",
+            "Bowser"});
             this.PartnerSelectBox.Location = new System.Drawing.Point(9, 19);
             this.PartnerSelectBox.Name = "PartnerSelectBox";
             this.PartnerSelectBox.Size = new System.Drawing.Size(121, 21);
@@ -749,17 +742,17 @@
             this.label13.Text = "Gameovers";
             this.toolTip1.SetToolTip(this.label13, "It might be a good idea to keep this at 0 if you haven\'t beaten the game yet.");
             // 
-            // numericUpDown1
+            // GameOverCounter
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(164, 27);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.GameOverCounter.Location = new System.Drawing.Point(164, 27);
+            this.GameOverCounter.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(86, 20);
-            this.numericUpDown1.TabIndex = 1;
+            this.GameOverCounter.Name = "GameOverCounter";
+            this.GameOverCounter.Size = new System.Drawing.Size(86, 20);
+            this.GameOverCounter.TabIndex = 1;
             // 
             // MainEditor
             // 
@@ -773,7 +766,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainEditor";
-            this.Text = "Paper Mario: The Origami King Save Editor (v0.9-Dev)";
+            this.Text = "Paper Mario: The Origami King Save Editor (v1.0-Prerelease)";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainEditor_KeyDown);
             this.menuStrip1.ResumeLayout(false);
@@ -804,7 +797,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameOverCounter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -860,9 +853,8 @@
         private System.Windows.Forms.NumericUpDown PlaytimeHourCounter;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private System.Windows.Forms.NumericUpDown CurrentConfettiCounter;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown GameOverCounter;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ToolTip toolTip1;
     }
