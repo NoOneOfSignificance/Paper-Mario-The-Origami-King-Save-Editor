@@ -1,60 +1,42 @@
 # Paper Mario TOK Save Editor
- Save editor for Paper Mario: The Origami King.
+A Save Editor for the recently released Paper Mario: The Origami King written in C#.
 
-## User Guide
+# Features
+## Editors
+* Stat Editor (HP, Max HP, Coins, Spent Coins, Confetti, Confetti Bag Capacity, and current Bibliofolds)
+* Inventory Editor (Weapon and Item edits. Can change a weapon's used durability and chance of breaking on the next turn)
+* Partner Editor (Can choose to have Folded Bowser, Bone Goomba, Sombrero Guy, Professor Toad, Green Toad, Luigi, Spike, Kamek, and Normal Bowser | Some partners may stay after removing them depending on your game progression)
+* Play Time Editor (Game's internal timer)
+* Gameover Count Editor
+## Settings
+* Automatically create save file backups in by enabling a setting
+* Have the program remind you to create a save file backup on startup
 
- ### Prerequisites
+# User Guide
+## Prerequisites
+* You must have a modded Switch in order to backup your saves and replace them with edited ones.
+* If you have a modded Switch, you will need to install a save manager such as [Checkpoint](https://github.com/FlagBrew/Checkpoint/releases/tag/v3.7.4).
+* Download and install the .NET Framework 4.7.2 Runtime.
 
-  * Your Switch must be softmodded or you must have access to your game save data in order to use this program.
-  * .NET Framework 4.7.2 Runtime must be installed. You can download it [here](https://dotnet.microsoft.com/download/dotnet-framework/net472).
-  * Have a backup of your save file (optional).
-
-### Loading your Save File
-
- 1. Use your backup manager of choice to dump your save data.
+## Steps
+### Getting your Save Data
+1. Use your Save Manager of choice and backup your save data for Paper Mario: The Origami King.
+2. Locate your data00.bin file in your SD Card and make sure it's on your PC.
+ a. Backup your data00.bin in case anything goes wrong during the editing process.
  
- 2. Transfer your data00.bin to your PC.
-  a. Create a backup of your data00.bin incase something goes wrong.
+### Editing your Save File with the Tool
+1. Download the latest version of the Paper Mario: The Origami King Save Editor from the [Releases page](https://github.com/zSupremoz/Paper-Mario-TOK-Save-Editor/releases)
+2. Open the application.
+ a. If you wish to enable automatic backups, go to File -> Settings, then click on Automatically Create Backups.
+ b. You can also change the location where you want to store these backups at. By default, the program creates the backup at the same place your data00.bin is located.
+3. Open the data00.bin with the application.
+4. Start editing to your hearts content.
+5. When you're done editing, click on File -> Save to save your edits. Then export your save file to your save manager.
 
- 3. Download the latest version of [Paper Mario TOK Save Editor].
+# Known Issues
+* Some Partners in the Partner Editor don't work. The ones that don't work are labeled as so.
+* Investigating an issue where the save file may become unreadable.
 
- 4. Open the application, then click File -> Open.
-
- 5. Navigate to the location of your data00.bin, then open it.
- 
-### Information about Editing
-
- #### Stat Edits
- * HP - Represents the first part of your HP Count. Max value is 999 (will revert to 990 when you enter a battle).
- * Max HP - Represents the second part of your HP Count (Damage is increased based on your Max HP count). Max value is 999 (will revert to 990 when you enter a battle).
- * Coins - Represents how much coins you currently have. Max value is 999,999.
- * Coins Spent - Represents how much coins you have spent on the save. Max value is 999,999,999.
- * Current Confetti - Represents your remaining Confetti. Max value is 999,999. (Input is in a text box because the value is stored as a double).
- * Confetti Bag Capacity - Represents the maximum Confetti you can carry. Max value is 999,999.
- 
- #### Bibliofolds
- * Checkboxes represent whether you have unlocked them in the game. Can be edited by simply checking or unchecking.
- 
- #### Inventory Editor
- * Your inventory slots are shown off on the left, and the item stats for the selected inventory slot is on the right.
- * The inventory editor currently supports editing Weapons and Items.
- * You can change the item type by clicking on the dropdown box and selecting the item.
- * Used Endurance - Represents how much the Weapon has been used.
- * Used Breakrate - Represents the chance of the item breaking the next time it gets used in combat.
- * If you're changing an item to a weapon, you'll need to apply the changes before you can edit the Used Endurance and Used Breakrate.
- * Make sure you apply your item changes before Saving.
- 
- #### Extra Stuff
- * You can change your current partner by selecting a Partner's name in the dropdown box.
- * You can edit how long you've been playing the game for. (Max Hour count is 999, Minute count is 59, and Second count is 59)
- 
- #### Post-Editing
- * When you finished editing, click on File -> Save (or use Ctrl+Shift+S). Then export the file to your SD Card.
-
-### To-Do List
-* Add the ability to edit Useful Items, Game Flags, Museum Stats, and other progression related things.
-* Make separate windows for editing certain things like Inventory.
-
-### Credits
-* zSupremoz - because I made the thing lol
-* Blue - Helping me out with CRC32B Hash Calculation
+# Credits
+* [zSupremoz](https://twitter.com/zSupremoz) - Main developer
+* [Blue](https://twitter.com/1mBlueDabadee) - Taught me how to recalculate the CRC32B hash
