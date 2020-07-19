@@ -3,6 +3,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace Paper_Mario_TOK_Save_Editor
@@ -40,6 +42,9 @@ namespace Paper_Mario_TOK_Save_Editor
         //Items
         public int ItemSlot;
 
+        //Partners
+        public string Partner0ID;
+
         OpenFileDialog OpenSaveFile = new OpenFileDialog();
         SaveFileDialog SaveFileEdits = new SaveFileDialog();
         #endregion
@@ -52,9 +57,23 @@ namespace Paper_Mario_TOK_Save_Editor
             if (OpenSaveFile.ShowDialog() == DialogResult.OK)
             {
                 SaveFilePath = OpenSaveFile.FileName;
+                string BackupPath = SaveFilePath.Replace("data00", "data00.bak");
                 SaveLoaded = true;
 
                 var FileStream = OpenSaveFile.OpenFile();
+
+                if (Properties.Settings.Default.AutoBackups == true)
+                {
+                    if (File.Exists(BackupPath))
+                    {
+                        File.Delete(BackupPath);
+                        File.Copy(SaveFilePath, BackupPath);
+                    }
+                    else
+                    {
+                        File.Copy(SaveFilePath, BackupPath);
+                    }
+                }
 
                 using (StreamReader Reader = new StreamReader(FileStream))
                 {
@@ -71,7 +90,7 @@ namespace Paper_Mario_TOK_Save_Editor
                     MaxHPCounter.Value = Convert.ToInt32(stats.Pouch.hp_max);
                     CoinCounter.Value = Convert.ToInt32(stats.Pouch.coin);
                     CoinsSpentCounter.Value = Convert.ToInt32(stats.Pouch.use_coin);
-                    CurrentConfettiCounter.Text = stats.Pouch.confetti_paper;
+                    CurrentConfettiCounter.Value = stats.Pouch.confetti_paper;
                     BagCapacityCounter.Value = Convert.ToInt32(stats.Pouch.confetti_paper_max);
                     SaveCheck();
 
@@ -105,8 +124,8 @@ namespace Paper_Mario_TOK_Save_Editor
                     }
                     else
                     {
-                        string PartnerID = val["party_infor"]["partyMemberName"]["0"].ToString();
-                        PartnerSelectBox.SelectedIndex = PartnerSelectBox.Items.IndexOf(ToPartnerName(PartnerID));
+                        Partner0ID = val["party_infor"]["partyMemberName"]["0"].ToString();
+                        PartnerSelectBox.SelectedIndex = PartnerSelectBox.Items.IndexOf(ToPartnerName(Partner0ID));
                     }
                 }
             }
@@ -123,7 +142,7 @@ namespace Paper_Mario_TOK_Save_Editor
             val["hp_max"] = Convert.ToInt32(MaxHPCounter.Value);
             val["coin"] = Convert.ToInt32(CoinCounter.Value);
             val["use_coin"] = Convert.ToInt32(CoinsSpentCounter.Value);
-            val["confetti_paper"] = Convert.ToDouble(CurrentConfettiCounter.Text);
+            val["confetti_paper"] = Convert.ToDouble(CurrentConfettiCounter.Value);
             val["confetti_paper_max"] = Convert.ToInt32(BagCapacityCounter.Value);
 
             if (EarthBookBox.Checked)
@@ -196,9 +215,8 @@ namespace Paper_Mario_TOK_Save_Editor
                     Writer.Write(BitConverter.ToString(Hash).Replace("-", "").ToLower());
                 }
                 #endregion
+                MessageBox.Show("data00.bin has been saved.", "Paper Mario: The Origami King Save Editor", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            MessageBox.Show("data00.bin has been saved.", "Paper Mario: The Origami King Save Editor", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         #region Function for checking if the file is loaded
@@ -272,8 +290,9 @@ namespace Paper_Mario_TOK_Save_Editor
                 {
                     itemId = val["equipment"]["bag"][IStoString]["itemId"].ToString(),
                     usedEndurance = Convert.ToInt32(val["equipment"]["bag"][IStoString]["usedEndurance"].ToString()),
-                    usedBreakRate = Convert.ToInt32(val["equipment"]["bag"][IStoString]["usedBreakRate"].ToString())
+                    usedBreakRate = Convert.ToInt32(val["equipment"]["bag"][IStoString]["usedBreakRate"].ToString()),
                 };
+                items[ItemSlot].type = Convert.ToInt32(val["equipment"]["bag"][IStoString]["type"]);
             }
 
             for (int ItemListIndex = 0; ItemListIndex < items.Length; ItemListIndex++)
@@ -292,7 +311,12 @@ namespace Paper_Mario_TOK_Save_Editor
                     items[ItemListIndex].type = -1;
                     items[ItemListIndex].stack = 0;
                 }
+                if (items[ItemListIndex].type == 2)
+                {
+                    items[ItemListIndex].itemName = items[ItemListIndex].itemName + " - Accessory";
+                }
                 string result = $"[{ItemListIndex}] " + items[ItemListIndex].itemName;
+
                 ItemListBox.Items.Add(result);
             }
 
@@ -314,12 +338,19 @@ namespace Paper_Mario_TOK_Save_Editor
             UsedEnduranceCounter.Value = items[ItemListBox.SelectedIndex].usedEndurance;
             UsedBreakRateCounter.Value = items[ItemListBox.SelectedIndex].usedBreakRate;
 
-            if (GetTypeFromName(items[ItemListBox.SelectedIndex].itemName) == 1)
+            if (GetTypeFromName(items[ItemListBox.SelectedIndex].itemName) == 1 || GetTypeFromName(items[ItemListBox.SelectedIndex].itemName) == 0)
             {
+                ItemSelectBox.Enabled = true;
                 UsedEnduranceCounter.Enabled = true;
                 UsedBreakRateCounter.Enabled = true;
             }
-            else
+            if (items[ItemListBox.SelectedIndex].type == 2)
+            {
+                ItemSelectBox.Enabled = false;
+                UsedEnduranceCounter.Enabled = false;
+                UsedBreakRateCounter.Enabled = false;
+            }
+            if (items[ItemListBox.SelectedIndex].type == 4)
             {
                 UsedEnduranceCounter.Enabled = false;
                 UsedBreakRateCounter.Enabled = false;
@@ -684,7 +715,7 @@ namespace Paper_Mario_TOK_Save_Editor
                 case "Boots":
                     return 1;
                 case "Hammer":
-                    return 1;
+                    return 0;
                 case "Shiny Boots":
                     return 1;
                 case "Flashy Boots":
@@ -702,21 +733,21 @@ namespace Paper_Mario_TOK_Save_Editor
                 case "Gold Boots":
                     return 1;
                 case "Shiny Hammer":
-                    return 1;
+                    return 0;
                 case "Flashy Hammer":
-                    return 1;
+                    return 0;
                 case "Legendary Hammer":
-                    return 1;
+                    return 0;
                 case "Fire Hammer":
-                    return 1;
+                    return 0;
                 case "Ice Hammer":
-                    return 1;
+                    return 0;
                 case "Hurlhammer":
-                    return 1;
+                    return 0;
                 case "Flashy Hurlhammer":
-                    return 1;
+                    return 0;
                 case "Gold Hammer":
-                    return 1;
+                    return 0;
                 case "Mushroom":
                     return 4;
                 case "Shiny Mushroom":

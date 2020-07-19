@@ -34,17 +34,5 @@ namespace Paper_Mario_TOK_Save_Editor.Properties {
                 this["AutoBackups"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string BackupDestination {
-            get {
-                return ((string)(this["BackupDestination"]));
-            }
-            set {
-                this["BackupDestination"] = value;
-            }
-        }
     }
 }

@@ -28,23 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CurrentConfettiCounter = new System.Windows.Forms.NumericUpDown();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.EarthBookBox = new System.Windows.Forms.CheckBox();
             this.IceBookBox = new System.Windows.Forms.CheckBox();
             this.WaterBookBox = new System.Windows.Forms.CheckBox();
             this.FireBookBox = new System.Windows.Forms.CheckBox();
-            this.CurrentConfettiCounter = new System.Windows.Forms.TextBox();
             this.BagCapacityCounter = new System.Windows.Forms.NumericUpDown();
             this.CoinsSpentCounter = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
@@ -78,11 +80,14 @@
             this.PlaytimeHourCounter = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.PartnerSelectBox = new System.Windows.Forms.ComboBox();
-            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label13 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrentConfettiCounter)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BagCapacityCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoinsSpentCounter)).BeginInit();
@@ -100,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -148,6 +154,12 @@
             this.settingsToolStripMenuItem.Text = "Settings...";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
+            // checkForUpdatesToolStripMenuItem
+            // 
+            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.checkForUpdatesToolStripMenuItem.Text = "Check for Updates...";
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -159,7 +171,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -187,8 +199,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.CurrentConfettiCounter);
+            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.BagCapacityCounter);
             this.groupBox1.Controls.Add(this.CoinsSpentCounter);
             this.groupBox1.Controls.Add(this.label5);
@@ -207,6 +219,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Player Stats";
             // 
+            // CurrentConfettiCounter
+            // 
+            this.CurrentConfettiCounter.DecimalPlaces = 10;
+            this.CurrentConfettiCounter.Location = new System.Drawing.Point(318, 35);
+            this.CurrentConfettiCounter.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.CurrentConfettiCounter.Name = "CurrentConfettiCounter";
+            this.CurrentConfettiCounter.Size = new System.Drawing.Size(102, 20);
+            this.CurrentConfettiCounter.TabIndex = 20;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.EarthBookBox);
@@ -223,6 +248,7 @@
             // EarthBookBox
             // 
             this.EarthBookBox.AutoSize = true;
+            this.EarthBookBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EarthBookBox.Location = new System.Drawing.Point(6, 18);
             this.EarthBookBox.Name = "EarthBookBox";
             this.EarthBookBox.Size = new System.Drawing.Size(51, 17);
@@ -233,6 +259,7 @@
             // IceBookBox
             // 
             this.IceBookBox.AutoSize = true;
+            this.IceBookBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.IceBookBox.Location = new System.Drawing.Point(173, 18);
             this.IceBookBox.Name = "IceBookBox";
             this.IceBookBox.Size = new System.Drawing.Size(41, 17);
@@ -243,6 +270,7 @@
             // WaterBookBox
             // 
             this.WaterBookBox.AutoSize = true;
+            this.WaterBookBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.WaterBookBox.Location = new System.Drawing.Point(63, 18);
             this.WaterBookBox.Name = "WaterBookBox";
             this.WaterBookBox.Size = new System.Drawing.Size(55, 17);
@@ -253,6 +281,7 @@
             // FireBookBox
             // 
             this.FireBookBox.AutoSize = true;
+            this.FireBookBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FireBookBox.Location = new System.Drawing.Point(124, 18);
             this.FireBookBox.Name = "FireBookBox";
             this.FireBookBox.Size = new System.Drawing.Size(43, 17);
@@ -260,18 +289,11 @@
             this.FireBookBox.Text = "Fire";
             this.FireBookBox.UseVisualStyleBackColor = true;
             // 
-            // CurrentConfettiCounter
-            // 
-            this.CurrentConfettiCounter.Location = new System.Drawing.Point(318, 34);
-            this.CurrentConfettiCounter.Name = "CurrentConfettiCounter";
-            this.CurrentConfettiCounter.Size = new System.Drawing.Size(102, 20);
-            this.CurrentConfettiCounter.TabIndex = 13;
-            // 
             // BagCapacityCounter
             // 
             this.BagCapacityCounter.Location = new System.Drawing.Point(318, 68);
             this.BagCapacityCounter.Maximum = new decimal(new int[] {
-            999999,
+            9999999,
             0,
             0,
             0});
@@ -479,6 +501,7 @@
             // 
             // ItemChangesApply
             // 
+            this.ItemChangesApply.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ItemChangesApply.Location = new System.Drawing.Point(12, 120);
             this.ItemChangesApply.Name = "ItemChangesApply";
             this.ItemChangesApply.Size = new System.Drawing.Size(113, 23);
@@ -507,6 +530,7 @@
             // 
             // ItemSelectBox
             // 
+            this.ItemSelectBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ItemSelectBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ItemSelectBox.FormattingEnabled = true;
             this.ItemSelectBox.Items.AddRange(new object[] {
@@ -539,7 +563,7 @@
             "Tail",
             "Shiny Tail",
             "Pow Block",
-            "Members Card (Bronze)"});
+            "Accessory"});
             this.ItemSelectBox.Location = new System.Drawing.Point(97, 42);
             this.ItemSelectBox.Name = "ItemSelectBox";
             this.ItemSelectBox.Size = new System.Drawing.Size(142, 21);
@@ -578,6 +602,7 @@
             // 
             // ItemListBox
             // 
+            this.ItemListBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ItemListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ItemListBox.FormattingEnabled = true;
             this.ItemListBox.Location = new System.Drawing.Point(3, 16);
@@ -588,6 +613,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.numericUpDown1);
+            this.tabPage4.Controls.Add(this.label13);
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Controls.Add(this.groupBox4);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -606,7 +633,7 @@
             this.groupBox5.Controls.Add(this.PlaytimeMinuteCounter);
             this.groupBox5.Controls.Add(this.label8);
             this.groupBox5.Controls.Add(this.PlaytimeHourCounter);
-            this.groupBox5.Location = new System.Drawing.Point(9, 64);
+            this.groupBox5.Location = new System.Drawing.Point(9, 89);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(200, 67);
             this.groupBox5.TabIndex = 1;
@@ -625,6 +652,11 @@
             // PlaytimeSecondCounter
             // 
             this.PlaytimeSecondCounter.Location = new System.Drawing.Point(131, 32);
+            this.PlaytimeSecondCounter.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
             this.PlaytimeSecondCounter.Name = "PlaytimeSecondCounter";
             this.PlaytimeSecondCounter.Size = new System.Drawing.Size(55, 20);
             this.PlaytimeSecondCounter.TabIndex = 4;
@@ -642,6 +674,11 @@
             // PlaytimeMinuteCounter
             // 
             this.PlaytimeMinuteCounter.Location = new System.Drawing.Point(70, 32);
+            this.PlaytimeMinuteCounter.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
             this.PlaytimeMinuteCounter.Name = "PlaytimeMinuteCounter";
             this.PlaytimeMinuteCounter.Size = new System.Drawing.Size(55, 20);
             this.PlaytimeMinuteCounter.TabIndex = 2;
@@ -659,6 +696,11 @@
             // PlaytimeHourCounter
             // 
             this.PlaytimeHourCounter.Location = new System.Drawing.Point(9, 32);
+            this.PlaytimeHourCounter.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.PlaytimeHourCounter.Name = "PlaytimeHourCounter";
             this.PlaytimeHourCounter.Size = new System.Drawing.Size(55, 20);
             this.PlaytimeHourCounter.TabIndex = 0;
@@ -669,13 +711,14 @@
             this.groupBox4.Controls.Add(this.PartnerSelectBox);
             this.groupBox4.Location = new System.Drawing.Point(9, 7);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(136, 50);
+            this.groupBox4.Size = new System.Drawing.Size(139, 49);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Party Member";
             // 
             // PartnerSelectBox
             // 
+            this.PartnerSelectBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PartnerSelectBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PartnerSelectBox.FormattingEnabled = true;
             this.PartnerSelectBox.Items.AddRange(new object[] {
@@ -690,17 +733,33 @@
             "Spike",
             "Bowser Jr. - Doesnt Work + Crash",
             "Kamek"});
-            this.PartnerSelectBox.Location = new System.Drawing.Point(7, 20);
+            this.PartnerSelectBox.Location = new System.Drawing.Point(9, 19);
             this.PartnerSelectBox.Name = "PartnerSelectBox";
             this.PartnerSelectBox.Size = new System.Drawing.Size(121, 21);
             this.PartnerSelectBox.TabIndex = 0;
             this.PartnerSelectBox.SelectedIndexChanged += new System.EventHandler(this.PartnerSelectBox_SelectedIndexChanged);
             // 
-            // checkForUpdatesToolStripMenuItem
+            // label13
             // 
-            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.checkForUpdatesToolStripMenuItem.Text = "Check for Updates...";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(161, 11);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Gameovers";
+            this.toolTip1.SetToolTip(this.label13, "It might be a good idea to keep this at 0 if you haven\'t beaten the game yet.");
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(164, 27);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(86, 20);
+            this.numericUpDown1.TabIndex = 1;
             // 
             // MainEditor
             // 
@@ -714,7 +773,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainEditor";
-            this.Text = "Paper Mario: The Origami King Save Editor (v0.7-Dev)";
+            this.Text = "Paper Mario: The Origami King Save Editor (v0.9-Dev)";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainEditor_KeyDown);
             this.menuStrip1.ResumeLayout(false);
@@ -723,6 +782,7 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrentConfettiCounter)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BagCapacityCounter)).EndInit();
@@ -737,12 +797,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.UsedEnduranceCounter)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeSecondCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -769,7 +831,6 @@
         private System.Windows.Forms.NumericUpDown BagCapacityCounter;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox CurrentConfettiCounter;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.CheckBox IceBookBox;
@@ -800,6 +861,10 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
+        private System.Windows.Forms.NumericUpDown CurrentConfettiCounter;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
