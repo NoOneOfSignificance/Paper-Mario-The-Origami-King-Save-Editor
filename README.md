@@ -5,7 +5,7 @@ A Save Editor for the recently released Paper Mario: The Origami King written in
 ## Editors
 * Stat Editor (HP, Max HP, Coins, Spent Coins, Confetti, Confetti Bag Capacity, and current Bibliofolds)
 * Inventory Editor (Weapon and Item edits. Can change a weapon's used durability and chance of breaking on the next turn)
-* Partner Editor (Some partners may stay after removing them depending on your game progression)
+* Partner Editor (Can choose to have Folded Bowser, Bone Goomba, Sombrero Guy, Professor Toad, Green Toad, Luigi, Spike, Kamek, and Normal Bowser | Some partners may stay after removing them depending on your game progression)
 * Play Time Editor (Game's internal timer)
 * Gameover Count Editor
 ## Settings
