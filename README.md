@@ -5,9 +5,10 @@ A Save Editor for the recently released Paper Mario: The Origami King written in
 ## Editors
 * Stat Editor (HP, Max HP, Coins, Spent Coins, Confetti, Confetti Bag Capacity, and current Bibliofolds)
 * Inventory Editor (Weapon and Item edits. Can change a weapon's used durability and chance of breaking on the next turn)
-* Partner Editor (Can choose to have Folded Bowser, Bone Goomba, Sombrero Guy, Professor Toad, Green Toad, Luigi, Spike, Kamek, and Normal Bowser | Some partners may stay after removing them depending on your game progression)
-* Play Time Editor (Game's internal timer)
+* Partner Editor (Can choose to have Folded Bowser, Bobby, Bone Goomba, Sombrero Guy, Spike, Professor Toad, Green Toad, Luigi, Bowser Jr., Kamek, and Normal Bowser | Some partners may stay after removing them depending on your game progression)
+* Play Time Editor (Game's internal playtime counter)
 * Gameover Count Editor
+* Toad Point Editor
 ## Settings
 * Automatically create save file backups in by enabling a setting
 * Have the program remind you to create a save file backup on startup
@@ -35,7 +36,7 @@ A Save Editor for the recently released Paper Mario: The Origami King written in
 
 # Known Issues
 * Some Partners in the Partner Editor don't work. The ones that don't work are labeled as so.
-* Investigating an issue where the save file may become unreadable.
+* Investigating an issue where the save file may become unreadable (to get around this, save your game then create a new backup in Checkpoint/JKSV then edit your new backup).
 
 # Credits
 * [zSupremoz](https://twitter.com/zSupremoz) - Main developer
