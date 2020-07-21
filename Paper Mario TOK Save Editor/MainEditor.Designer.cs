@@ -84,8 +84,6 @@
             this.PlaytimeHourCounter = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.PartnerSelectBox = new System.Windows.Forms.ComboBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.DebugTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -111,7 +109,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).BeginInit();
             this.groupBox4.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -139,7 +136,7 @@
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.openToolStripMenuItem.Text = "&Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -148,14 +145,14 @@
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             this.exportToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.S)));
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.exportToolStripMenuItem.Text = "&Save...";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.settingsToolStripMenuItem.Text = "Settings...";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -179,7 +176,6 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -807,26 +803,6 @@
             this.PartnerSelectBox.TabIndex = 0;
             this.PartnerSelectBox.SelectedIndexChanged += new System.EventHandler(this.PartnerSelectBox_SelectedIndexChanged);
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.DebugTextBox);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(453, 159);
-            this.tabPage3.TabIndex = 4;
-            this.tabPage3.Text = "Debug";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // DebugTextBox
-            // 
-            this.DebugTextBox.Location = new System.Drawing.Point(9, 7);
-            this.DebugTextBox.Multiline = true;
-            this.DebugTextBox.Name = "DebugTextBox";
-            this.DebugTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DebugTextBox.Size = new System.Drawing.Size(436, 143);
-            this.DebugTextBox.TabIndex = 0;
-            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -874,8 +850,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -938,8 +912,6 @@
         private System.Windows.Forms.NumericUpDown ItemCounter;
         private System.Windows.Forms.NumericUpDown ToadPointCounter;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox DebugTextBox;
     }
 }
 
