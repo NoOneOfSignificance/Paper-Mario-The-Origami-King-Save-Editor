@@ -34,6 +34,10 @@ A Save Editor for the recently released Paper Mario: The Origami King written in
 4. Start editing to your hearts content.
 5. When you're done editing, click on File -> Save to save your edits. Then export your save file to your save manager.
 
+# Risks
+* Because increasing your Max HP increases your attack power, instakilling enemies that are required to be battled for game progression (such as the Shy Guy at the Earth Vellumental Temple) can render your save file as unusuable if you wish to progress further.
+* If the game increases your HP to 1000 or above, your game will crash.
+
 # Known Issues
 * Some Partners in the Partner Editor don't work. The ones that don't work are labeled as so.
 * Investigating an issue where the save file may become unreadable (to get around this, save your game then create a new backup in Checkpoint/JKSV then edit your new backup).
