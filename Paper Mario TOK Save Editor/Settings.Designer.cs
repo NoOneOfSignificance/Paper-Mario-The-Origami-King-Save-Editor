@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.AutoBackupCheck = new System.Windows.Forms.CheckBox();
-            this.BackupRemindersCheck = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BackupFilePath = new System.Windows.Forms.TextBox();
             this.FolderBrowser = new System.Windows.Forms.Button();
+            this.BackupRemindersCheck = new System.Windows.Forms.CheckBox();
+            this.BackupFilePath = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.AutoBackupCheck = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,16 +52,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Backups";
             // 
-            // AutoBackupCheck
+            // FolderBrowser
             // 
-            this.AutoBackupCheck.AutoSize = true;
-            this.AutoBackupCheck.Location = new System.Drawing.Point(6, 19);
-            this.AutoBackupCheck.Name = "AutoBackupCheck";
-            this.AutoBackupCheck.Size = new System.Drawing.Size(167, 17);
-            this.AutoBackupCheck.TabIndex = 1;
-            this.AutoBackupCheck.Text = "Automatically Create Backups";
-            this.AutoBackupCheck.UseVisualStyleBackColor = true;
-            this.AutoBackupCheck.CheckedChanged += new System.EventHandler(this.AutoBackupCheck_CheckedChanged);
+            this.FolderBrowser.Location = new System.Drawing.Point(277, 58);
+            this.FolderBrowser.Name = "FolderBrowser";
+            this.FolderBrowser.Size = new System.Drawing.Size(75, 23);
+            this.FolderBrowser.TabIndex = 4;
+            this.FolderBrowser.Text = "Browse...";
+            this.FolderBrowser.UseVisualStyleBackColor = true;
+            this.FolderBrowser.Click += new System.EventHandler(this.FolderBrowser_Click);
             // 
             // BackupRemindersCheck
             // 
@@ -74,6 +73,14 @@
             this.BackupRemindersCheck.UseVisualStyleBackColor = true;
             this.BackupRemindersCheck.CheckedChanged += new System.EventHandler(this.BackupRemindersCheck_CheckedChanged);
             // 
+            // BackupFilePath
+            // 
+            this.BackupFilePath.Location = new System.Drawing.Point(27, 60);
+            this.BackupFilePath.Name = "BackupFilePath";
+            this.BackupFilePath.ReadOnly = true;
+            this.BackupFilePath.Size = new System.Drawing.Size(244, 20);
+            this.BackupFilePath.TabIndex = 3;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -83,23 +90,16 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Backup Path";
             // 
-            // BackupFilePath
+            // AutoBackupCheck
             // 
-            this.BackupFilePath.Location = new System.Drawing.Point(27, 60);
-            this.BackupFilePath.Name = "BackupFilePath";
-            this.BackupFilePath.ReadOnly = true;
-            this.BackupFilePath.Size = new System.Drawing.Size(244, 20);
-            this.BackupFilePath.TabIndex = 3;
-            // 
-            // FolderBrowser
-            // 
-            this.FolderBrowser.Location = new System.Drawing.Point(277, 58);
-            this.FolderBrowser.Name = "FolderBrowser";
-            this.FolderBrowser.Size = new System.Drawing.Size(75, 23);
-            this.FolderBrowser.TabIndex = 4;
-            this.FolderBrowser.Text = "Browse...";
-            this.FolderBrowser.UseVisualStyleBackColor = true;
-            this.FolderBrowser.Click += new System.EventHandler(this.FolderBrowser_Click);
+            this.AutoBackupCheck.AutoSize = true;
+            this.AutoBackupCheck.Location = new System.Drawing.Point(6, 19);
+            this.AutoBackupCheck.Name = "AutoBackupCheck";
+            this.AutoBackupCheck.Size = new System.Drawing.Size(167, 17);
+            this.AutoBackupCheck.TabIndex = 1;
+            this.AutoBackupCheck.Text = "Automatically Create Backups";
+            this.AutoBackupCheck.UseVisualStyleBackColor = true;
+            this.AutoBackupCheck.CheckedChanged += new System.EventHandler(this.AutoBackupCheck_CheckedChanged);
             // 
             // Settings
             // 
@@ -107,6 +107,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 137);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Settings";
             this.Text = "Settings | Paper Mario: The Origami King Save Editor (v0.7-Dev)";

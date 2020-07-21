@@ -12,7 +12,7 @@ namespace Paper_Mario_TOK_Save_Editor
         public int usedEndurance { get; set; }
         public int usedBreakRate { get; set; }
         public int type { get; set; }
-        public int stack { get; set; }
+        public int stackCount { get; set; }
         public string slotInInventory { get; set; }
         public string itemName { get; set; }
     }

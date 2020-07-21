@@ -34,7 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.RepoLink = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -83,28 +83,31 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Blue - Teaching me how to recalculate the save file hash";
             // 
-            // linkLabel1
+            // RepoLink
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(11, 135);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(69, 13);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "GitHub Repo";
+            this.RepoLink.AutoSize = true;
+            this.RepoLink.Location = new System.Drawing.Point(11, 135);
+            this.RepoLink.Name = "RepoLink";
+            this.RepoLink.Size = new System.Drawing.Size(69, 13);
+            this.RepoLink.TabIndex = 5;
+            this.RepoLink.TabStop = true;
+            this.RepoLink.Text = "GitHub Repo";
+            this.RepoLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RepoLink_LinkClicked);
             // 
             // ApplicationInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 166);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.RepoLink);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ApplicationInfo";
             this.Text = "About";
             this.ResumeLayout(false);
@@ -119,6 +122,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel RepoLink;
     }
 }

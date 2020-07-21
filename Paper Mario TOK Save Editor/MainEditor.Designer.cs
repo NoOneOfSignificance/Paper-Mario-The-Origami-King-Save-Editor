@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,6 +58,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.ItemCounter = new System.Windows.Forms.NumericUpDown();
             this.ItemNameLabel = new System.Windows.Forms.Label();
             this.UsedBreakRateCounter = new System.Windows.Forms.NumericUpDown();
             this.ItemChangesApply = new System.Windows.Forms.Button();
@@ -70,6 +71,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ItemListBox = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.ToadPointCounter = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.GameOverCounter = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.PlaytimeSecondCounter = new System.Windows.Forms.NumericUpDown();
@@ -79,9 +84,8 @@
             this.PlaytimeHourCounter = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.PartnerSelectBox = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.GameOverCounter = new System.Windows.Forms.NumericUpDown();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.DebugTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -95,16 +99,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.HPCounter)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsedBreakRateCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsedEnduranceCounter)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ToadPointCounter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameOverCounter)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeSecondCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GameOverCounter)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -172,6 +179,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -455,6 +463,8 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.ItemCounter);
             this.groupBox6.Controls.Add(this.ItemNameLabel);
             this.groupBox6.Controls.Add(this.UsedBreakRateCounter);
             this.groupBox6.Controls.Add(this.ItemChangesApply);
@@ -469,6 +479,27 @@
             this.groupBox6.TabIndex = 17;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Item Editor";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 105);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(58, 13);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Item Count";
+            // 
+            // ItemCounter
+            // 
+            this.ItemCounter.Location = new System.Drawing.Point(12, 123);
+            this.ItemCounter.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.ItemCounter.Name = "ItemCounter";
+            this.ItemCounter.Size = new System.Drawing.Size(97, 20);
+            this.ItemCounter.TabIndex = 18;
             // 
             // ItemNameLabel
             // 
@@ -494,7 +525,7 @@
             // ItemChangesApply
             // 
             this.ItemChangesApply.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ItemChangesApply.Location = new System.Drawing.Point(12, 120);
+            this.ItemChangesApply.Location = new System.Drawing.Point(122, 120);
             this.ItemChangesApply.Name = "ItemChangesApply";
             this.ItemChangesApply.Size = new System.Drawing.Size(113, 23);
             this.ItemChangesApply.TabIndex = 16;
@@ -605,6 +636,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.ToadPointCounter);
+            this.tabPage4.Controls.Add(this.label15);
             this.tabPage4.Controls.Add(this.GameOverCounter);
             this.tabPage4.Controls.Add(this.label13);
             this.tabPage4.Controls.Add(this.groupBox5);
@@ -616,6 +649,48 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Extras";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // ToadPointCounter
+            // 
+            this.ToadPointCounter.Location = new System.Drawing.Point(263, 27);
+            this.ToadPointCounter.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.ToadPointCounter.Name = "ToadPointCounter";
+            this.ToadPointCounter.Size = new System.Drawing.Size(79, 20);
+            this.ToadPointCounter.TabIndex = 3;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(260, 11);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(64, 13);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Toad Points";
+            // 
+            // GameOverCounter
+            // 
+            this.GameOverCounter.Location = new System.Drawing.Point(164, 27);
+            this.GameOverCounter.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.GameOverCounter.Name = "GameOverCounter";
+            this.GameOverCounter.Size = new System.Drawing.Size(86, 20);
+            this.GameOverCounter.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(161, 11);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Gameovers";
             // 
             // groupBox5
             // 
@@ -716,14 +791,14 @@
             this.PartnerSelectBox.Items.AddRange(new object[] {
             "None",
             "Bowser (Folded)",
-            "Bobby - Doesnt Work",
+            "Bobby",
             "Bone Goomba",
             "Sombrero Guy",
             "Prof. Toad",
             "Green Toad",
             "Luigi",
             "Spike",
-            "Bowser Jr. - Doesn\'t Work",
+            "Bowser Jr.",
             "Kamek",
             "Bowser"});
             this.PartnerSelectBox.Location = new System.Drawing.Point(9, 19);
@@ -732,27 +807,25 @@
             this.PartnerSelectBox.TabIndex = 0;
             this.PartnerSelectBox.SelectedIndexChanged += new System.EventHandler(this.PartnerSelectBox_SelectedIndexChanged);
             // 
-            // label13
+            // tabPage3
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(161, 11);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Gameovers";
-            this.toolTip1.SetToolTip(this.label13, "It might be a good idea to keep this at 0 if you haven\'t beaten the game yet.");
+            this.tabPage3.Controls.Add(this.DebugTextBox);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(453, 159);
+            this.tabPage3.TabIndex = 4;
+            this.tabPage3.Text = "Debug";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // GameOverCounter
+            // DebugTextBox
             // 
-            this.GameOverCounter.Location = new System.Drawing.Point(164, 27);
-            this.GameOverCounter.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.GameOverCounter.Name = "GameOverCounter";
-            this.GameOverCounter.Size = new System.Drawing.Size(86, 20);
-            this.GameOverCounter.TabIndex = 1;
+            this.DebugTextBox.Location = new System.Drawing.Point(9, 7);
+            this.DebugTextBox.Multiline = true;
+            this.DebugTextBox.Name = "DebugTextBox";
+            this.DebugTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DebugTextBox.Size = new System.Drawing.Size(436, 143);
+            this.DebugTextBox.TabIndex = 0;
             // 
             // MainEditor
             // 
@@ -761,12 +834,13 @@
             this.ClientSize = new System.Drawing.Size(461, 211);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainEditor";
-            this.Text = "Paper Mario: The Origami King Save Editor (v1.0-Prerelease)";
+            this.Text = "Paper Mario: The Origami King Save Editor (v1.0)";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainEditor_KeyDown);
             this.menuStrip1.ResumeLayout(false);
@@ -786,18 +860,22 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsedBreakRateCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsedEnduranceCounter)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ToadPointCounter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameOverCounter)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeSecondCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeMinuteCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaytimeHourCounter)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GameOverCounter)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -856,7 +934,12 @@
         private System.Windows.Forms.NumericUpDown CurrentConfettiCounter;
         private System.Windows.Forms.NumericUpDown GameOverCounter;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown ItemCounter;
+        private System.Windows.Forms.NumericUpDown ToadPointCounter;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox DebugTextBox;
     }
 }
 

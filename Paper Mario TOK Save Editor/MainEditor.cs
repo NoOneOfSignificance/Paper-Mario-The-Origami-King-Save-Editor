@@ -6,6 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using System.Xml;
+using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Paper_Mario_TOK_Save_Editor
 {
@@ -18,6 +21,29 @@ namespace Paper_Mario_TOK_Save_Editor
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string appver = "v1.0";
+            XmlDocument appinfor = new XmlDocument();
+
+            appinfor.Load("https://raw.githubusercontent.com/zSupremoz/Paper-Mario-The-Origami-King-Save-Editor/master/appinfo.xml");
+            XmlElement root = appinfor.DocumentElement;
+            XmlNodeList nodes = root.SelectNodes("//appinfo");
+
+            foreach (XmlNode node in nodes)
+            {
+                string appver_xml = node["appver"].InnerText;
+                string tag = node["apptag"].InnerText;
+
+                if (appver != appver_xml)
+                {
+                    DialogResult Update = MessageBox.Show("The application is out of date! Would you like to go to the latest release on GitHub?", "Application Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (Update == DialogResult.Yes)
+                    {
+                        string ReleaseLink = "https://github.com/zSupremoz/Paper-Mario-The-Origami-King-Save-Editor/releases/tag/" + tag;
+                        Process.Start(ReleaseLink);
+                    }
+                }
+            }
+
             ItemSelectBox.SelectedIndex = 0;
             SaveLoaded = false;
             SaveCheck();
@@ -83,12 +109,25 @@ namespace Paper_Mario_TOK_Save_Editor
                         BackupPath = Properties.Settings.Default.BackupPath + @"\data00.bak.bin";
                         if (File.Exists(BackupPath))
                         {
-                            File.Delete(BackupPath);
-                            File.Copy(SaveFilePath, BackupPath);
+                            try
+                            {
+                                File.Delete(BackupPath);
+                                File.Copy(SaveFilePath, BackupPath);
+                            } catch (DirectoryNotFoundException)
+                            {
+                                MessageBox.Show("The backup could not be created because your selected backup directory has been deleted or doesn't exist. Please change this in Settings if you wish to continue using Automatic Backups.", "Could not Create Backup", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                         else
                         {
-                            File.Copy(SaveFilePath, BackupPath);
+                            try
+                            {
+                                File.Copy(SaveFilePath, BackupPath);
+                            }
+                            catch (DirectoryNotFoundException)
+                            {
+                                MessageBox.Show("The backup could not be created because your selected backup directory has been deleted or doesn't exist. Please change this in Settings if you wish to continue using Automatic Backups.", "Could not Create Backup", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                     }
                     
@@ -135,6 +174,7 @@ namespace Paper_Mario_TOK_Save_Editor
                     PlaytimeMinuteCounter.Value = Convert.ToInt32(val["play_time"]["play_min"]);
                     PlaytimeSecondCounter.Value = Convert.ToInt32(val["play_time"]["play_sec"]);
                     GameOverCounter.Value = Convert.ToInt32(val["record"]["game_over_count"]);
+                    ToadPointCounter.Value = Convert.ToInt32(val["kinopio_point"]);
 
                     string PartnerStatus = val["party_infor"]["partyMemberName"].ToString();
 
@@ -155,7 +195,14 @@ namespace Paper_Mario_TOK_Save_Editor
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region File Saving
+            if (SaveLoaded == false)
+            {
+                MessageBox.Show("Unable to Save");
+                return;
+            }
             JObject obj = JObject.Parse(JsonRead);
+            
+            
             var val = obj["Pouch"];
 
             val["hp"] = Convert.ToInt32(HPCounter.Value);
@@ -165,6 +212,7 @@ namespace Paper_Mario_TOK_Save_Editor
             val["confetti_paper"] = Convert.ToDouble(CurrentConfettiCounter.Value);
             val["confetti_paper_max"] = Convert.ToInt32(BagCapacityCounter.Value);
             val["record"]["game_over_count"] = Convert.ToInt32(GameOverCounter.Value);
+            val["kinopio_point"] = Convert.ToInt32(ToadPointCounter.Value);
 
             if (EarthBookBox.Checked)
             {
@@ -212,7 +260,7 @@ namespace Paper_Mario_TOK_Save_Editor
             result = result.Replace("/", "\\/");
             result = result.Replace(":", " :");
             result = result.Replace("\"misc\" : {}", "\"misc\" : {\n  }");
-            result = result.Replace("\"partyMemberName\" : {}", "\"partyMemberName\" : {\n      }");
+            result = result.Replace("\"partyMemberName\" : \"{}\"", "\"partyMemberName\" : {\n      }");
             result = result.Replace(": {}", ": {\n    }");
             #endregion
 
@@ -264,6 +312,7 @@ namespace Paper_Mario_TOK_Save_Editor
                 PlaytimeMinuteCounter.Enabled = false;
                 PlaytimeSecondCounter.Enabled = false;
                 PartnerSelectBox.Enabled = false;
+                ToadPointCounter.Enabled = false;
             }
             if (SaveLoaded == true)
             {
@@ -286,6 +335,7 @@ namespace Paper_Mario_TOK_Save_Editor
                 PlaytimeMinuteCounter.Enabled = true;
                 PlaytimeSecondCounter.Enabled = true;
                 PartnerSelectBox.Enabled = true;
+                ToadPointCounter.Enabled = false;
             }
         }
         #endregion
@@ -312,8 +362,10 @@ namespace Paper_Mario_TOK_Save_Editor
                     itemId = val["equipment"]["bag"][IStoString]["itemId"].ToString(),
                     usedEndurance = Convert.ToInt32(val["equipment"]["bag"][IStoString]["usedEndurance"].ToString()),
                     usedBreakRate = Convert.ToInt32(val["equipment"]["bag"][IStoString]["usedBreakRate"].ToString()),
+                    
                 };
                 items[ItemSlot].type = Convert.ToInt32(val["equipment"]["bag"][IStoString]["type"]);
+                items[ItemSlot].stackCount = Convert.ToInt32(val["equipment"]["bag"][IStoString]["stackCount"].ToString());
             }
 
             for (int ItemListIndex = 0; ItemListIndex < items.Length; ItemListIndex++)
@@ -330,7 +382,7 @@ namespace Paper_Mario_TOK_Save_Editor
                     items[ItemListIndex].usedEndurance = 0;
                     items[ItemListIndex].usedBreakRate = 0;
                     items[ItemListIndex].type = -1;
-                    items[ItemListIndex].stack = 0;
+                    items[ItemListIndex].stackCount = 0;
                 }
                 if (items[ItemListIndex].type == 2)
                 {
@@ -364,6 +416,8 @@ namespace Paper_Mario_TOK_Save_Editor
                 ItemSelectBox.Enabled = true;
                 UsedEnduranceCounter.Enabled = true;
                 UsedBreakRateCounter.Enabled = true;
+                ItemCounter.Enabled = false;
+                ItemCounter.Value = 1;
             }
             if (items[ItemListBox.SelectedIndex].type == 2)
             {
@@ -371,11 +425,15 @@ namespace Paper_Mario_TOK_Save_Editor
                 ItemSelectBox.Enabled = false;
                 UsedEnduranceCounter.Enabled = false;
                 UsedBreakRateCounter.Enabled = false;
+                ItemCounter.Enabled = false;
+                ItemCounter.Value = 1; 
             }
             if (items[ItemListBox.SelectedIndex].type == 4)
             {
                 UsedEnduranceCounter.Enabled = false;
                 UsedBreakRateCounter.Enabled = false;
+                ItemCounter.Enabled = true;
+                ItemCounter.Value = items[ItemListBox.SelectedIndex].stackCount;
             }
 
         }
@@ -441,8 +499,9 @@ namespace Paper_Mario_TOK_Save_Editor
             switch (PartnerSelectBox.SelectedIndex)
             {
                 case 0:
-                    val["party_infor"]["partyMemberNum"] = 0;
-                    val["party_infor"]["partyMemberName"] = "{\n      }";
+                    val["party_infor"]["partyMemberNum"] = 1;
+                    val["party_infor"]["partyMemberName"]["0"] = "";
+                    JsonRead = obj.ToString();
                     break;
                 case 1:
                     val["party_infor"]["partyMemberNum"] = 1;
@@ -451,7 +510,7 @@ namespace Paper_Mario_TOK_Save_Editor
                     break;
                 case 2:
                     val["party_infor"]["partyMemberNum"] = 1;
-                    val["party_infor"]["partyMemberName"]["0"] = "P_BOM";
+                    val["party_infor"]["partyMemberName"]["0"] = "P_BOME";
                     JsonRead = obj.ToString();
                     break;
                 case 3:
@@ -486,7 +545,7 @@ namespace Paper_Mario_TOK_Save_Editor
                     break;
                 case 9:
                     val["party_infor"]["partyMemberNum"] = 1;
-                    val["party_infor"]["partyMemberName"]["0"] = "P_KPAJ";
+                    val["party_infor"]["partyMemberName"]["0"] = "P_KPAJ_Crown";
                     JsonRead = obj.ToString();
                     break;
                 case 10:
@@ -802,7 +861,7 @@ namespace Paper_Mario_TOK_Save_Editor
             {
                 case "P_KPAO":
                     return "Bowser (Folded)";
-                case "P_BOM":
+                case "P_BOME":
                     return "Bobby";
                 case "P_KURB":
                     return "Bone Goomba";
@@ -816,7 +875,7 @@ namespace Paper_Mario_TOK_Save_Editor
                     return "Luigi";
                 case "P_GBN":
                     return "Spike";
-                case "P_KPAJ":
+                case "P_KPAJ_Crown":
                     return "Bowser Jr.";
                 case "P_KMP":
                     return "Kamek";
