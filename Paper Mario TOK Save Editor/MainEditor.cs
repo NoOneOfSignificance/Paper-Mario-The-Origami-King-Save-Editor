@@ -335,7 +335,7 @@ namespace Paper_Mario_TOK_Save_Editor
                 PlaytimeMinuteCounter.Enabled = true;
                 PlaytimeSecondCounter.Enabled = true;
                 PartnerSelectBox.Enabled = true;
-                ToadPointCounter.Enabled = false;
+                ToadPointCounter.Enabled = true;
             }
         }
         #endregion
