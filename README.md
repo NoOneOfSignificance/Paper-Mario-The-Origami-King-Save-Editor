@@ -45,3 +45,4 @@ A Save Editor for the recently released Paper Mario: The Origami King written in
 # Credits
 * [zSupremoz](https://twitter.com/zSupremoz) - Main developer
 * [Blue](https://twitter.com/1mBlueDabadee) - Taught me how to recalculate the CRC32B hash
+* [haiphongn](https://github.com/haiphongn) - Got ItemIDs for various accessories I didn't already have in.
