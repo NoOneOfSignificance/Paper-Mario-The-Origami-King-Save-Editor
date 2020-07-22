@@ -687,8 +687,41 @@ namespace Paper_Mario_TOK_Save_Editor
                     result = "Confetti Vacuum";
                     return result;
                 case "PSV_Sub_MembersCard1":
-                    result = "Members Card (Bronze)";
+                    result = "Bronze Membership Card";
                     return result;
+                case "PSV_Sub_MembersCard2":
+                    result = "Silver Membership Card";
+                    return result;
+                case "PSV_Sub_MembersCard3":
+                    result = "Gold Membership Card";
+                    return result;
+                case "PSV_Sub_FlowerShower":
+                    result = "Petal Bag";
+                    return result;
+                case "PSV_Sub_BattleParty":
+                    result = "Ally Tambourine";
+                    return result;
+                case "PSV_Sub_HideBlockAlarm":
+                    result = "Hidden Block Alert";
+                    return result;
+                case "PSV_Sub_Pedometer":
+                    result = "Coin Step Counter";
+                    return result;
+                case "PSV_Sub_KinopioAlarm":
+                    result = "Toad Alert";
+                    return result;
+                case "PSV_Sub_TreasureAlarm":
+                    result = "Treasure Alert";
+                    return result;
+                case "IC_SECRET_BLOCK_RS":
+                    result = "Hidden Block Unhider";
+                    return result;
+                case "IC_KINOPIO_RS":
+                    result = "Toad Radar";
+                    return result;
+                //case "IC_LATENCY":
+                //    result = "Lamination Suit?";
+                //    return result;
             }
             return "Error";
         }
