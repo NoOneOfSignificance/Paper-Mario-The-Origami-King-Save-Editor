@@ -719,9 +719,12 @@ namespace Paper_Mario_TOK_Save_Editor
                 case "IC_KINOPIO_RS":
                     result = "Toad Radar";
                     return result;
-                //case "IC_LATENCY":
-                //    result = "Lamination Suit?";
-                //    return result;
+                case "IC_LATENCY":
+                    result = "Lamination Suit";
+                    return result;
+                case "PSV_Sub_MarioSound":
+                    result = "Retro Soundbox";
+                    return result;
             }
             return "Error";
         }
