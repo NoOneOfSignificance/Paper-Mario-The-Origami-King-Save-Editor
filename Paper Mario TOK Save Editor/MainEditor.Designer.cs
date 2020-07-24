@@ -489,7 +489,7 @@
             // 
             this.ItemCounter.Location = new System.Drawing.Point(12, 123);
             this.ItemCounter.Maximum = new decimal(new int[] {
-            999999,
+            99,
             0,
             0,
             0});
@@ -582,7 +582,8 @@
             "Tail",
             "Shiny Tail",
             "Pow Block",
-            "Accessory"});
+            "Accessory",
+            "Desert Whistle"});
             this.ItemSelectBox.Location = new System.Drawing.Point(97, 42);
             this.ItemSelectBox.Name = "ItemSelectBox";
             this.ItemSelectBox.Size = new System.Drawing.Size(142, 21);
@@ -648,7 +649,7 @@
             // 
             // ToadPointCounter
             // 
-            this.ToadPointCounter.Location = new System.Drawing.Point(263, 27);
+            this.ToadPointCounter.Location = new System.Drawing.Point(319, 121);
             this.ToadPointCounter.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -661,7 +662,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(260, 11);
+            this.label15.Location = new System.Drawing.Point(316, 105);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(64, 13);
             this.label15.TabIndex = 2;
@@ -669,7 +670,7 @@
             // 
             // GameOverCounter
             // 
-            this.GameOverCounter.Location = new System.Drawing.Point(164, 27);
+            this.GameOverCounter.Location = new System.Drawing.Point(220, 121);
             this.GameOverCounter.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -682,7 +683,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(161, 11);
+            this.label13.Location = new System.Drawing.Point(217, 105);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(61, 13);
             this.label13.TabIndex = 0;
@@ -774,10 +775,10 @@
             this.groupBox4.Controls.Add(this.PartnerSelectBox);
             this.groupBox4.Location = new System.Drawing.Point(9, 7);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(139, 49);
+            this.groupBox4.Size = new System.Drawing.Size(140, 49);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Party Member";
+            this.groupBox4.Text = "Party Members";
             // 
             // PartnerSelectBox
             // 
@@ -816,7 +817,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainEditor";
-            this.Text = "Paper Mario: The Origami King Save Editor (v1.0)";
+            this.Text = "Paper Mario: The Origami King Save Editor (v1.1)";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainEditor_KeyDown);
             this.menuStrip1.ResumeLayout(false);

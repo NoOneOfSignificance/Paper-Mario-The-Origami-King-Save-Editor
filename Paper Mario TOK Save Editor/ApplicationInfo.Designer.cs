@@ -33,7 +33,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.RepoLink = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
@@ -68,25 +67,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 97);
+            this.label4.Location = new System.Drawing.Point(12, 93);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(161, 13);
+            this.label4.Size = new System.Drawing.Size(275, 65);
             this.label4.TabIndex = 3;
-            this.label4.Text = "zSupremoz - Editor Development";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 110);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(275, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Blue - Teaching me how to recalculate the save file hash";
+            this.label4.Text = "zSupremoz - Main Developer\r\nBlue - Teaching me how to recalculate the save file h" +
+    "ash\r\nhaiphongn - Adding on to the Inventory reading function\r\n\r\nDamienG - Crc32 " +
+    "class";
             // 
             // RepoLink
             // 
             this.RepoLink.AutoSize = true;
-            this.RepoLink.Location = new System.Drawing.Point(11, 135);
+            this.RepoLink.Location = new System.Drawing.Point(13, 167);
             this.RepoLink.Name = "RepoLink";
             this.RepoLink.Size = new System.Drawing.Size(69, 13);
             this.RepoLink.TabIndex = 5;
@@ -98,9 +90,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 166);
+            this.ClientSize = new System.Drawing.Size(384, 186);
             this.Controls.Add(this.RepoLink);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -121,7 +112,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.LinkLabel RepoLink;
     }
 }
