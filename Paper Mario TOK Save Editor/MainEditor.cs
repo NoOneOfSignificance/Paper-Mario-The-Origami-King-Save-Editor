@@ -398,6 +398,9 @@ namespace Paper_Mario_TOK_Save_Editor
 
         private void ItemListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            JObject obj = JObject.Parse(JsonRead);
+            var val = obj["Pouch"];
+
             string ItemCheck = ItemListBox.SelectedItem.ToString();
             if (ItemCheck.Contains("Unused"))
             {
@@ -406,6 +409,15 @@ namespace Paper_Mario_TOK_Save_Editor
             else
             {
                 ItemNameLabel.Text = ToItemName(items[ItemListBox.SelectedIndex].itemId);
+
+                if (ItemListBox.SelectedIndex == Convert.ToInt32(val["equipment"]["hammer"][0]) || ItemListBox.SelectedIndex == Convert.ToInt32(val["equipment"]["hammer"][1]) || ItemListBox.SelectedIndex == Convert.ToInt32(val["equipment"]["hammer"][2]) || ItemListBox.SelectedIndex == Convert.ToInt32(val["equipment"]["hammer"][3]))
+                {
+                    ItemNameLabel.Text = ToItemName(items[ItemListBox.SelectedIndex].itemId) + " - Equipped";
+                }
+                if (ItemListBox.SelectedIndex == Convert.ToInt32(val["equipment"]["boots"][0]) || ItemListBox.SelectedIndex == Convert.ToInt32(val["equipment"]["boots"][1]) || ItemListBox.SelectedIndex == Convert.ToInt32(val["equipment"]["boots"][2]) || ItemListBox.SelectedIndex == Convert.ToInt32(val["equipment"]["boots"][3]))
+                {
+                    ItemNameLabel.Text = ToItemName(items[ItemListBox.SelectedIndex].itemId) + " - Equipped";
+                }
             }
             ItemSelectBox.SelectedIndex = ItemSelectBox.Items.IndexOf(ToItemName(items[ItemListBox.SelectedIndex].itemId));
             UsedEnduranceCounter.Value = items[ItemListBox.SelectedIndex].usedEndurance;
@@ -418,6 +430,7 @@ namespace Paper_Mario_TOK_Save_Editor
                 UsedBreakRateCounter.Enabled = true;
                 ItemCounter.Enabled = false;
                 ItemCounter.Value = 1;
+                ItemChangesApply.Enabled = true;
             }
             if (items[ItemListBox.SelectedIndex].type == 2)
             {
@@ -426,16 +439,31 @@ namespace Paper_Mario_TOK_Save_Editor
                 UsedEnduranceCounter.Enabled = false;
                 UsedBreakRateCounter.Enabled = false;
                 ItemCounter.Enabled = false;
-                ItemCounter.Value = 1; 
+                ItemCounter.Value = 1;
+                ItemChangesApply.Enabled = false;
             }
             if (items[ItemListBox.SelectedIndex].type == 4)
             {
-                UsedEnduranceCounter.Enabled = false;
-                UsedBreakRateCounter.Enabled = false;
-                ItemCounter.Enabled = true;
-                ItemCounter.Value = items[ItemListBox.SelectedIndex].stackCount;
+                if (items[ItemListBox.SelectedIndex].itemId == "IC_WHISTLE")
+                {
+                    ItemSelectBox.SelectedIndex = 29;
+                    ItemSelectBox.Enabled = false;
+                    UsedEnduranceCounter.Enabled = false;
+                    UsedBreakRateCounter.Enabled = false;
+                    ItemCounter.Enabled = false;
+                    ItemCounter.Value = 1;
+                    ItemChangesApply.Enabled = false;
+                }
+                else
+                {
+                    UsedEnduranceCounter.Enabled = false;
+                    UsedBreakRateCounter.Enabled = false;
+                    ItemCounter.Enabled = true;
+                    ItemCounter.Value = items[ItemListBox.SelectedIndex].stackCount;
+                    ItemSelectBox.Enabled = true;
+                    ItemChangesApply.Enabled = true;
+                }
             }
-
         }
 
         private void ItemChangesApply_Click(object sender, EventArgs e)
@@ -481,7 +509,6 @@ namespace Paper_Mario_TOK_Save_Editor
             val["play_time"]["play_min"] = Convert.ToInt32(PlaytimeMinuteCounter.Value);
             JsonRead = obj.ToString();
         }
-
         private void PlaytimeSecondCounter_ValueChanged(object sender, EventArgs e)
         {
             JObject obj = JObject.Parse(JsonRead);
@@ -490,7 +517,6 @@ namespace Paper_Mario_TOK_Save_Editor
             val["play_time"]["play_sec"] = Convert.ToInt32(PlaytimeSecondCounter.Value);
             JsonRead = obj.ToString();
         }
-
         private void PartnerSelectBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             JObject obj = JObject.Parse(JsonRead);
@@ -636,7 +662,7 @@ namespace Paper_Mario_TOK_Save_Editor
                     result = "Ice Flower";
                     return result;
                 case "SUPER_FIRE_FLOWER":
-                    result = "Shiny Fire FLower";
+                    result = "Shiny Fire Flower";
                     return result;
                 case "SUPER_ICE_FLOWER":
                     result = "Shiny Ice Flower";
