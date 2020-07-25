@@ -17,7 +17,7 @@ A Save Editor for the recently released Paper Mario: The Origami King written in
 ## Prerequisites
 * You must have a modded Switch in order to backup your saves and replace them with edited ones.
 * If you have a modded Switch, you will need to install a save manager such as [Checkpoint](https://github.com/FlagBrew/Checkpoint/releases/tag/v3.7.4).
-* Download and install the .NET Framework 4.7.2 Runtime.
+* Make sure you have .NET Framework Runtime v4.5 or higher installed.
 
 ## Steps
 ### Getting your Save Data
