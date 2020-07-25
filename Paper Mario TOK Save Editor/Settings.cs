@@ -30,6 +30,7 @@ namespace Paper_Mario_TOK_Save_Editor
             if (AutoBackupCheck.Checked)
             {
                 FolderBrowser.Enabled = true;
+                BackupRemindersCheck.Checked = false;
             }
             else
             {

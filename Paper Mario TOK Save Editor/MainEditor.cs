@@ -21,7 +21,7 @@ namespace Paper_Mario_TOK_Save_Editor
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string appver = "v1.0";
+            string appver = "v1.1";
             XmlDocument appinfor = new XmlDocument();
 
             appinfor.Load("https://raw.githubusercontent.com/zSupremoz/Paper-Mario-The-Origami-King-Save-Editor/master/appinfo.xml");
