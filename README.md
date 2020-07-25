@@ -43,6 +43,7 @@ A Save Editor for the recently released Paper Mario: The Origami King written in
 * Investigating an issue where the save file may become unreadable (to get around this, save your game then create a new backup in Checkpoint/JKSV then edit your new backup).
 
 # Credits
-* [zSupremoz](https://twitter.com/zSupremoz) - Main developer
-* [Blue](https://twitter.com/1mBlueDabadee) - Taught me how to recalculate the CRC32B hash
+* [zSupremoz](https://twitter.com/zSupremoz) - Main developer.
+* [Blue](https://twitter.com/1mBlueDabadee) - Taught me how to recalculate the CRC32B hash.
 * [haiphongn](https://github.com/haiphongn) - Got ItemIDs for various accessories I didn't already have in.
+* [DamienG's CRC32 Class](https://github.com/damieng/DamienGKit/blob/master/CSharp/DamienG.Library/Security/Cryptography/Crc32.cs) - Used for recalculating the CRC32B hash at the end of the save file.
