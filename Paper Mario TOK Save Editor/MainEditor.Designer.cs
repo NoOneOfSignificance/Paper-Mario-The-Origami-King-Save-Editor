@@ -35,6 +35,7 @@
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -159,15 +160,23 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userGuideToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // userGuideToolStripMenuItem
+            // 
+            this.userGuideToolStripMenuItem.Name = "userGuideToolStripMenuItem";
+            this.userGuideToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.userGuideToolStripMenuItem.Text = "User-Guide";
+            this.userGuideToolStripMenuItem.Click += new System.EventHandler(this.userGuideToolStripMenuItem_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -586,7 +595,7 @@
             "Desert Whistle"});
             this.ItemSelectBox.Location = new System.Drawing.Point(97, 42);
             this.ItemSelectBox.Name = "ItemSelectBox";
-            this.ItemSelectBox.Size = new System.Drawing.Size(142, 21);
+            this.ItemSelectBox.Size = new System.Drawing.Size(132, 21);
             this.ItemSelectBox.TabIndex = 10;
             // 
             // label9
@@ -778,7 +787,7 @@
             this.groupBox4.Size = new System.Drawing.Size(140, 49);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Party Members";
+            this.groupBox4.Text = "Current Party Member";
             // 
             // PartnerSelectBox
             // 
@@ -913,6 +922,7 @@
         private System.Windows.Forms.NumericUpDown ItemCounter;
         private System.Windows.Forms.NumericUpDown ToadPointCounter;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ToolStripMenuItem userGuideToolStripMenuItem;
     }
 }
 

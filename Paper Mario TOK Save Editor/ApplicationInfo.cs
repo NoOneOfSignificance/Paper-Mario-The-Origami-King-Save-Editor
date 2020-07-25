@@ -14,5 +14,10 @@ namespace Paper_Mario_TOK_Save_Editor
         {
             Process.Start("https://github.com/zSupremoz/Paper-Mario-The-Origami-King-Save-Editor");
         }
+
+        private void ReportIssue_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/zSupremoz/Paper-Mario-The-Origami-King-Save-Editor/issues");
+        }
     }
 }

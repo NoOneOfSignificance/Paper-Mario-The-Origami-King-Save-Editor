@@ -27,6 +27,16 @@ namespace Paper_Mario_TOK_Save_Editor
         private void AutoBackupCheck_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.AutoBackups = (AutoBackupCheck.Checked);
+            if (AutoBackupCheck.Checked)
+            {
+                FolderBrowser.Enabled = true;
+            }
+            else
+            {
+                FolderBrowser.Enabled = false;
+                BackupFilePath.Text = "";
+                Properties.Settings.Default.BackupPath = "";
+            }
         }
 
         private void BackupRemindersCheck_CheckedChanged(object sender, EventArgs e)
@@ -40,6 +50,7 @@ namespace Paper_Mario_TOK_Save_Editor
             {
                 Properties.Settings.Default.BackupPath = SelectFolder.SelectedPath;
                 BackupFilePath.Text = SelectFolder.SelectedPath;
+                BackupRemindersCheck.Checked = false;
             }
         }
 
@@ -48,11 +59,25 @@ namespace Paper_Mario_TOK_Save_Editor
             AutoBackupCheck.Checked = Properties.Settings.Default.AutoBackups;
             BackupRemindersCheck.Checked = Properties.Settings.Default.BackupReminder;
             BackupFilePath.Text = Properties.Settings.Default.BackupPath;
+            FolderBrowser.Enabled = AutoBackupCheck.Checked;
         }
 
         private void Settings_FormClosed(object sender, FormClosedEventArgs e)
         {
             Properties.Settings.Default.Save();
+        }
+
+        private void Settings_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (AutoBackupCheck.Checked && BackupFilePath.Text == "")
+            {
+                MessageBox.Show("Please make sure you choose a backup file path or deselect automatic backups");
+                e.Cancel = true;
+            }
+            else
+            {
+                e.Cancel = false;
+            }
         }
     }
 }

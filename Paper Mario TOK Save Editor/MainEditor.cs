@@ -197,7 +197,7 @@ namespace Paper_Mario_TOK_Save_Editor
             #region File Saving
             if (SaveLoaded == false)
             {
-                MessageBox.Show("Unable to Save");
+                MessageBox.Show("You must open your Save File first!");
                 return;
             }
             JObject obj = JObject.Parse(JsonRead);
@@ -966,6 +966,11 @@ namespace Paper_Mario_TOK_Save_Editor
             {
                 MessageBox.Show("Save File Placeholder");
             }
+        }
+
+        private void userGuideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/zSupremoz/Paper-Mario-The-Origami-King-Save-Editor#user-guide");
         }
     }
 }
