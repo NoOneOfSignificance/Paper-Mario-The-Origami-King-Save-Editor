@@ -39,8 +39,8 @@ A Save Editor for the recently released Paper Mario: The Origami King written in
 * If the game increases your HP to 1000 or above, your game will crash.
 
 # Known Issues
-* Some Partners in the Partner Editor don't work. The ones that don't work are labeled as so.
 * Investigating an issue where the save file may become unreadable (to get around this, save your game then create a new backup in Checkpoint/JKSV then edit your new backup).
+* A memory leak occurs when another file gets opened while having one already open in the editor.
 
 # Credits
 * [Nataliris](https://twitter.com/Natalirist) - Main developer.
